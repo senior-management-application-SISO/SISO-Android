@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.224" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/ic_menu.xml" value="0.224" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/shadow.xml" value="0.223" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/font/font.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/header.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/toolbar_main.xml" value="0.33" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/menu/menu_main.xml" value="0.36614583333333334" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
