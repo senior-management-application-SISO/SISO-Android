@@ -5,9 +5,15 @@
       <map>
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.224" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/ic_menu.xml" value="0.224" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/round.xml" value="0.2295" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/round_shadow.xml" value="0.2295" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/round_solid.xml" value="0.2295" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/round_stroke.xml" value="0.2295" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/shadow.xml" value="0.223" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/font/font.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/header.xml" value="0.358695652173913" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/toolbar_main.xml" value="0.33" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/menu/menu_main.xml" value="0.36614583333333334" />
