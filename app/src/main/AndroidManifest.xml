@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
-          xmlns:tools="http://schemas.android.com/tools"
-          package="com.project.siso">
-    
-    <uses-permission android:name="android.permission.INTERNET"/>
-    
-    <application
-            android:allowBackup="true"
-            android:dataExtractionRules="@xml/data_extraction_rules"
-            android:fullBackupContent="@xml/backup_rules"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/Theme.Siso"
-            tools:targetApi="31">
-        <activity
-                android:name=".medicine.MedicineActivity"
-                android:exported="false"/>
-=======
     xmlns:tools="http://schemas.android.com/tools"
     package="com.project.siso">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -39,7 +21,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".mealfriend.MealFriendActivity"
+            android:name=".medicine.MedicineSetTimeActivity"
             android:exported="false" />
 
         <meta-data
@@ -47,30 +29,37 @@
             android:value="barcode" />
 
         <activity
+            android:name=".mealfriend.MealFriendActivity"
+            android:exported="false" />
+        <activity
+            android:name=".medicine.MedicineActivity"
+            android:exported="false" />
+        <activity
             android:name=".qr.QrCodeScanActivity"
             android:exported="false" />
         <activity
             android:name=".qr.CaptureActivity"
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"
-            tools:replace="android:screenOrientation"></activity>
->>>>>>> befd26b2539de3da4621a2168a7997809ba08b7c
+            tools:replace="android:screenOrientation" />
         <activity
-                android:name=".home.SignUpActivity"
-                android:exported="false"/>
+            android:name=".home.SignUpActivity"
+            android:exported="false" />
         <activity
-                android:name=".MainActivity"
-                android:exported="false"/>
+            android:name=".MainActivity"
+            android:exported="false" />
         <activity
-                android:name=".home.HomeActivity"
-                android:exported="true"
-                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:name=".home.HomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".medicine.AlarmReceiver" />
     </application>
 
 </manifest>
