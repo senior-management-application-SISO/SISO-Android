@@ -11,8 +11,13 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.project.siso.databinding.ActivityHomeBinding;
+import com.project.siso.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Main_Activity";
+
+    private ActivityMainBinding binding;
 
     private ImageView ivMenu;
     private DrawerLayout drawerLayout;
@@ -21,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
 
         ivMenu = findViewById(R.id.iv_menu);
         drawerLayout = findViewById(R.id.drawer);
@@ -37,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        setListeners();
     }
 
+    private void setListeners() {
+
+    }
 }
