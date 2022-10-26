@@ -38,22 +38,22 @@ public class QrCodeScanActivity extends AppCompatActivity {
         //자바 스크립트 사용을 할 수 있도록 합니다.
         webSettings.setJavaScriptEnabled(true);
 
-        binding.wv.setWebViewClient(new WebViewClient(){
+        binding.wv.setWebViewClient(new WebViewClient() {
             //페이지 로딩이 끝나면 호출됩니다.
             @Override
-            public void onPageFinished(WebView view,String url){
-                Toast.makeText(QrCodeScanActivity.this,"로딩 끝", Toast.LENGTH_SHORT).show();
+            public void onPageFinished(WebView view, String url) {
+                //Toast.makeText(QrCodeScanActivity.this, "로딩 끝", Toast.LENGTH_SHORT).show();
             }
         });
         binding.et.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     //bt의 onClick을 실행
                     binding.bt.callOnClick();
                     //키보드 숨기기
-                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                     return true;
                 }
                 return false;
@@ -64,13 +64,11 @@ public class QrCodeScanActivity extends AppCompatActivity {
         integrator = new IntentIntegrator(this);
 
 
-
         //바코드 안의 텍스트
         integrator.setPrompt("QR코드를 사각형 안에 비춰주세요.");
 
         //바코드 인식 시 소리 여부
         integrator.setBeepEnabled(false);
-
 
         integrator.setBarcodeImageEnabled(true);
 
@@ -78,12 +76,14 @@ public class QrCodeScanActivity extends AppCompatActivity {
 
         //바코드 스캐너 시작
         integrator.initiateScan();
+
+        binding.backButton.setOnClickListener(v -> finish());
     }
 
-    public void onClick(View view){
+    public void onClick(View view) {
         String address = binding.et.getText().toString();
 
-        if(!address.startsWith("http://")){
+        if (!address.startsWith("http://")) {
             address = "http://" + address;
         }
 
@@ -92,15 +92,15 @@ public class QrCodeScanActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(binding.wv.isActivated()){
-            if(binding.wv.canGoBack()){
+        if (binding.wv.isActivated()) {
+            if (binding.wv.canGoBack()) {
                 binding.wv.goBack();
-            }else{
+            } else {
                 //스캐너 재시작
                 integrator.initiateScan();
             }
 
-        }else{
+        } else {
             super.onBackPressed();
         }
 
@@ -113,19 +113,17 @@ public class QrCodeScanActivity extends AppCompatActivity {
 
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 
-        if(result != null){
-            if(result.getContents() == null){
+        if (result != null) {
+            if (result.getContents() == null) {
 
-            }else{
+            } else {
                 //qr코드를 읽어서 EditText에 입력해줍니다.
                 binding.et.setText(result.getContents());
 
                 //Button의 onclick호출
                 binding.bt.callOnClick();
-
-                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_SHORT).show();
             }
-        }else{
+        } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
 
