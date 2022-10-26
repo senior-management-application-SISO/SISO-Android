@@ -30,6 +30,7 @@ android {
     }
 }
 
+<<<<<<< HEAD
     dependencies {
         implementation 'androidx.appcompat:appcompat:1.5.1'
         implementation 'com.google.android.material:material:1.7.0'
@@ -38,3 +39,20 @@ android {
         androidTestImplementation 'androidx.test.ext:junit:1.1.3'
         androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     }
+=======
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.gms:play-services-vision:20.1.3'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    implementation 'com.journeyapps:zxing-android-embedded:4.1.0'
+    implementation 'com.google.zxing:core:3.5.0'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
+>>>>>>> befd26b2539de3da4621a2168a7997809ba08b7c
