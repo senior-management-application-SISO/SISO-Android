@@ -1,18 +1,17 @@
 package com.project.siso;
 
+import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.project.siso.databinding.ActivityHomeBinding;
 import com.project.siso.databinding.ActivityMainBinding;
+import com.project.siso.medicine.MedicineActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Main_Activity";
@@ -22,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView ivMenu;
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +45,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setListeners();
+
+
     }
 
     private void setListeners() {
-
+        binding.medicineButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MedicineActivity.class)));
     }
 }
