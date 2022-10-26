@@ -4,6 +4,7 @@
     package="com.project.siso">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -14,13 +15,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Siso"
+        android:hardwareAccelerated="true"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode"/>
         <activity
             android:name=".villagehall.VillageHallActivity"
             android:exported="false" />
         <activity
-            android:name=".DrugActivity"
+            android:name=".qr.QrCodeScanActivity"
             android:exported="false" />
+        <activity
+            android:name=".qr.CaptureActivity"
+            android:screenOrientation="portrait"
+            tools:replace="android:screenOrientation"
+            android:stateNotNeeded="true">
+        </activity>
         <activity
             android:name=".home.SignUpActivity"
             android:exported="false" />

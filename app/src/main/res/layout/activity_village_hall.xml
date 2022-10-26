@@ -13,12 +13,12 @@
         android:layout_height="wrap_content"
         android:text="마을 회관 출석부"
         android:gravity="center"
-        android:textSize="50dp"/>
+        android:textSize="30dp"/>
 
-    <ListView
-        android:id="@+id/listView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>

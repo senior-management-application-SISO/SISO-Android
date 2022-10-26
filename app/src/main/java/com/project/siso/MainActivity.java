@@ -16,6 +16,7 @@ import com.project.siso.databinding.ActivityHomeBinding;
 import com.project.siso.databinding.ActivityMainBinding;
 import com.project.siso.databinding.ActivityVillageHallBinding;
 import com.project.siso.home.SignUpActivity;
+import com.project.siso.qr.QrCodeScanActivity;
 import com.project.siso.villagehall.VillageHallActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -56,5 +57,6 @@ public class MainActivity extends AppCompatActivity {
         binding.villageHall.setOnClickListener(v ->
             startActivity(new Intent(getApplicationContext(), VillageHallActivity.class))
         );
+        binding.qrCheck.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), QrCodeScanActivity.class)));
     }
 }
