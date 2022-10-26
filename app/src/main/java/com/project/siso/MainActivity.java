@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -13,6 +14,8 @@ import android.widget.ImageView;
 
 import com.project.siso.databinding.ActivityHomeBinding;
 import com.project.siso.databinding.ActivityMainBinding;
+import com.project.siso.home.SignUpActivity;
+import com.project.siso.qr.QrCodeScanActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Main_Activity";
@@ -48,6 +51,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
-
+        binding.qrCheck.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), QrCodeScanActivity.class)));
     }
 }
