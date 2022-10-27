@@ -15,4 +15,10 @@
         android:title="bookmark"
         app:showAsAction="always"/>
 
+    <item
+        android:id="@+id/logout"
+        android:title="로그아웃"
+        android:icon="@drawable/ic_logout"
+        app:showAsAction="always"/>
+
 </menu>
