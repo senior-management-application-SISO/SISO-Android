@@ -1,32 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-  <component name="ProjectRootManager">
-    <output url="file://$PROJECT_DIR$/out" />
-=======
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.224" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/ic_menu.xml" value="0.224" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/round.xml" value="0.2295" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/round_shadow.xml" value="0.2295" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/round_solid.xml" value="0.2295" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/round_stroke.xml" value="0.2295" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/shadow.xml" value="0.223" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/font/font.xml" value="0.24635416666666668" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_drug.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_home.xml" value="0.33" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_meal_friend.xml" value="0.33" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_medicine.xml" value="0.2171875" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_medicine_set_time.xml" value="0.1875" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_qr_code_scan.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_detail_sign_up.xml" value="0.1875" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_home.xml" value="0.14947916666666666" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_main.xml" value="0.18704710144927536" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/header.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/item_meal_friend.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/toolbar_main.xml" value="0.33" />
-        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/menu/menu_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/item_meal_friend.xml" value="0.1875" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/toolbar_main.xml" value="0.1875" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/menu/menu_main.xml" value="0.33" />
       </map>
     </option>
   </component>
@@ -35,6 +18,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
->>>>>>> 6d834fb35d3266b75f67895b43a1e920195366f6
   </component>
 </project>

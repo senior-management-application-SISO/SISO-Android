@@ -8,15 +8,6 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start|left"
-        app:headerLayout="@layout/header"
-        app:menu="@menu/menu_main"
-         />
-
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,47 +38,48 @@
                     android:id="@+id/qrCheck"
                     android:layout_width="180dp"
                     android:layout_height="180dp"
-                    android:background="@drawable/round_shadow"
                     android:layout_margin="5dp"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:background="@drawable/round_shadow"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
                         android:background="@drawable/ic_qr_code_scanner" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="QR 코드 스캔"
                         android:fontFamily="@font/suitmedium"
-                        android:textSize="18dp"/>
+                        android:text="QR 코드 스캔"
+                        android:textSize="18dp" />
                 </LinearLayout>
 
                 <LinearLayout
-					android:id="@+id/medicineButton"
+                    android:id="@+id/medicineButton"
                     android:layout_width="180dp"
                     android:layout_height="180dp"
-                    android:background="@drawable/round_shadow"
                     android:layout_margin="5dp"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:background="@drawable/round_shadow"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:background="@drawable/ic_capsule"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:background="@drawable/ic_capsule" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="복약 알림"
                         android:fontFamily="@font/suitmedium"
-                        android:textSize="18dp"/>
+                        android:text="복약 알림"
+                        android:textSize="18dp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -100,50 +92,58 @@
                     android:id="@+id/mealFriendButton"
                     android:layout_width="180dp"
                     android:layout_height="180dp"
-                    android:background="@drawable/round_shadow"
                     android:layout_margin="5dp"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:background="@drawable/round_shadow"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:background="@drawable/ic_meal"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:background="@drawable/ic_meal" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="식사 친구 찾기"
                         android:fontFamily="@font/suitmedium"
-                        android:textSize="18dp"/>
+                        android:text="식사 친구 찾기"
+                        android:textSize="18dp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/villageHall"
                     android:layout_width="180dp"
                     android:layout_height="180dp"
-                    android:background="@drawable/round_shadow"
                     android:layout_margin="5dp"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:background="@drawable/round_shadow"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:background="@drawable/ic_home"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:background="@drawable/ic_home" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="마을 회관 현황"
                         android:fontFamily="@font/suitmedium"
-                        android:textSize="18dp"/>
+                        android:text="마을 회관 현황"
+                        android:textSize="18dp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </GridLayout>
->>>>>>> befd26b2539de3da4621a2168a7997809ba08b7c
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start|left"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>
