@@ -22,6 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.project.siso.databinding.ActivityMainBinding;
 
 import com.project.siso.databinding.ActivityVillageHallBinding;
+import com.project.siso.home.HomeActivity;
 import com.project.siso.mealfriend.MealFriendActivity;
 import com.project.siso.medicine.MedicineActivity;
 import com.project.siso.qr.QrCodeScanActivity;
@@ -81,8 +82,9 @@ public class MainActivity extends AppCompatActivity {
                     SharedPreferences sharedPreferences = getSharedPreferences("sharedPreferences", Activity.MODE_PRIVATE);
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.clear();
-                    editor.commit();
+                    editor.remove("id");
+                    editor.remove("pw");
+                    editor.apply();
 
                     finish();
                 }

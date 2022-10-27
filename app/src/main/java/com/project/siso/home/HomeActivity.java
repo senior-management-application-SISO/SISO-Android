@@ -10,10 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.project.siso.MainActivity;
 import com.project.siso.R;
 import com.project.siso.databinding.ActivityHomeBinding;
-import com.project.siso.databinding.ActivityVillageHallBinding;
 import com.project.siso.domain.Users;
 import com.project.siso.httpserver.GetHttpClient;
 import com.project.siso.httpserver.PostHttpClient;
@@ -41,8 +41,8 @@ public class HomeActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("sharedPreferences", Activity.MODE_PRIVATE);
 
-        loginId = sharedPreferences.getString("inputId", null);
-        loginPwd = sharedPreferences.getString("inputPwd", null);
+        loginId = sharedPreferences.getString("id", null);
+        loginPwd = sharedPreferences.getString("pw", null);
 
         if (loginId != null && loginPwd != null) {
             user = new Users();
@@ -74,6 +74,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private void loginCheck(Users user) {
         try {
+            Gson gson = new Gson();
+
             RequestBody formBody = new FormBody.Builder()
                     .add("userId", user.getUserId())
                     .add("password", user.getPassword())
@@ -97,16 +99,18 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
 
+            userInfo = gson.fromJson(result, Users.class);
+
             if (result.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호가 맞지 않습니다.", Toast.LENGTH_SHORT).show();
             } else {
                 SharedPreferences sharedPreferences = getSharedPreferences("sharedPreferences", Activity.MODE_PRIVATE);
                 SharedPreferences.Editor autoLogin = sharedPreferences.edit();
 
-                autoLogin.putString("inputId", user.getUserId());
-                autoLogin.putString("inputPwd", user.getPassword());
+                autoLogin.putString("id", user.getUserId());
+                autoLogin.putString("pw", user.getPassword());
 
-                autoLogin.commit();
+                autoLogin.apply();
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);

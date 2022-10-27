@@ -51,6 +51,7 @@
                     android:background="@drawable/round_shadow"
                     android:fontFamily="@font/suitmedium"
                     android:hint="비밀번호"
+                    android:inputType="textPassword"
                     android:paddingStart="30dp"
                     android:paddingEnd="30dp" />
             </LinearLayout>

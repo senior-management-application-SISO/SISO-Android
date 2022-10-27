@@ -2,20 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_person"
-        android:title="person"
-        android:icon="@drawable/ic_qr_code_scanner"
-        app:showAsAction="always"/>
-    <item
-        android:id="@+id/menu_android"
-        android:title="android"
-        app:showAsAction="always"/>
-    <item
-        android:id="@+id/menu_bookmark"
-        android:title="bookmark"
-        app:showAsAction="always"/>
-
-    <item
         android:id="@+id/logout"
         android:title="로그아웃"
         android:icon="@drawable/ic_logout"

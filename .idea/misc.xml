@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_detail_sign_up.xml" value="0.1875" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_home.xml" value="0.14947916666666666" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_main.xml" value="0.18704710144927536" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/item_meal_friend.xml" value="0.1875" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/toolbar_main.xml" value="0.1875" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/menu/menu_main.xml" value="0.33" />

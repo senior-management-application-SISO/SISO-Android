@@ -1,6 +1,7 @@
 package com.project.siso.domain;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 public class Users {
 
