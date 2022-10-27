@@ -1,21 +1,20 @@
 package com.project.siso;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.View;
-import android.widget.ImageView;
-
-import com.project.siso.databinding.ActivityHomeBinding;
 import com.project.siso.databinding.ActivityMainBinding;
+
 import com.project.siso.databinding.ActivityVillageHallBinding;
 import com.project.siso.home.SignUpActivity;
+import com.project.siso.mealfriend.MealFriendActivity;
 import com.project.siso.qr.QrCodeScanActivity;
 import com.project.siso.villagehall.VillageHallActivity;
 
@@ -58,5 +57,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), VillageHallActivity.class))
         );
         binding.qrCheck.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), QrCodeScanActivity.class)));
+        binding.mealFriendButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MealFriendActivity.class)));
     }
 }
