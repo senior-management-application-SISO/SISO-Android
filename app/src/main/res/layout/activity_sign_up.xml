@@ -137,6 +137,7 @@
                     android:textSize="15dp" />
 
                 <Button
+                    android:id="@+id/settings"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -144,7 +145,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/round_stroke"
-                    android:text="관리자 및 소속 설정" />
+                    android:text="상세 정보 입력" />
             </LinearLayout>
         </LinearLayout>
 

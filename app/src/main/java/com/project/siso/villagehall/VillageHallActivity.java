@@ -5,20 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import com.project.siso.databinding.ActivityVillageHallBinding;
 import com.project.siso.httpserver.GetHttpClient;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class VillageHallActivity extends AppCompatActivity {
 
     private ActivityVillageHallBinding binding;
     private String userListStringJson = null;
-    private List<Users> usersList = new ArrayList<>();
+    private List<Users> users = new ArrayList<>();
 
+    ArrayList<Users> items= new ArrayList<>(); //리사이클러 뷰가 보여줄 대량의 데이터를 가지고 있는 리시트객체
+    VillageHallAdapter adapter;   //리사이클러뷰가 보여줄 뷰을 만들어내는 객체참조변수
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +29,6 @@ public class VillageHallActivity extends AppCompatActivity {
         binding = ActivityVillageHallBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
     }
-
-    ArrayList<Users> items= new ArrayList<>(); //리사이클러 뷰가 보여줄 대량의 데이터를 가지고 있는 리시트객체
-    VillageHallAdapter adapter;   //리사이클러뷰가 보여줄 뷰을 만들어내는 객체참조변수
 
     @Override
     protected void onResume() {
@@ -40,6 +40,10 @@ public class VillageHallActivity extends AppCompatActivity {
 //        items.add(new VillageHall("joe", "010-1111-1111"));
 //        items.add(new VillageHall("woo", "010-2222-2222"));
 //        items.add(new VillageHall("hyeon", "010-3333-3333"));
+
+        for (Users user : users) {
+            items.add(new Users(user.getUserName(), user.getPhoneNumber()));
+        }
 
         //아답터생성 및 리사이클러뷰에 설정
         adapter= new VillageHallAdapter(this, items);
@@ -65,16 +69,20 @@ public class VillageHallActivity extends AppCompatActivity {
                 }
             }
             userListStringJson = result;
-            jsonParsing(userListStringJson);
+            users = jsonParsing(userListStringJson);
+            System.out.println("users = " + users);
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-    private void jsonParsing(String userListStringJson) {
+    private List<Users> jsonParsing(String userListStringJson) throws JSONException {
         Gson gson = new Gson();
-        Users users = gson.fromJson(userListStringJson, Users.class);
-        System.out.println(users);
+
+        Users[] users = gson.fromJson(userListStringJson.toString(), Users[].class);
+        List<Users> list = Arrays.asList(users);
+
+        return list;
     }
 
 
