@@ -4,13 +4,13 @@ import java.time.LocalDateTime;
 
 public class Users {
     private String userName;
-    private LocalDateTime dateOfBirth;
+    private String dateOfBirth;
     private String phoneNumber;
 
     private String hallName;
     private String address;
 
-    public Users(String userName, LocalDateTime dateOfBirth, String phoneNumber, String hallName, String address) {
+    public Users(String userName, String dateOfBirth, String phoneNumber, String hallName, String address) {
         this.userName = userName;
         this.dateOfBirth = dateOfBirth;
         this.phoneNumber = phoneNumber;
