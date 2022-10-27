@@ -23,7 +23,7 @@ public class MealFriendActivity extends AppCompatActivity {
 
     }
 
-    ArrayList<MealFriend> items= new ArrayList<>(); //리사이클러 뷰가 보여줄 대량의 데이터를 가지고 있는 리시트객체
+    ArrayList<MealFriend> items = new ArrayList<>(); //리사이클러 뷰가 보여줄 대량의 데이터를 가지고 있는 리시트객체
     MealFriendAdapter adapter;   //리사이클러뷰가 보여줄 뷰을 만들어내는 객체참조변수
 
     @Override
@@ -35,7 +35,7 @@ public class MealFriendActivity extends AppCompatActivity {
         items.add(new MealFriend(4, "sde", "fds"));
 
         //아답터생성 및 리사이클러뷰에 설정
-        adapter= new MealFriendAdapter(this, items);
+        adapter = new MealFriendAdapter(this, items);
         binding.mealFriendList.setAdapter(adapter);
 
         //*추가** 다른 방법의 바인딩클래스 사용 아답터 예제소개 *****

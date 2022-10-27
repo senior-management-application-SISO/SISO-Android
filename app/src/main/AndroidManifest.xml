@@ -5,6 +5,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -17,9 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Siso"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+        tools:targetApi="30">
         <activity
-            android:name=".mealfriend.MealFriendActivity"
+            android:name=".medicine.MedicineSetTimeActivity"
             android:exported="false" />
 
         <meta-data
@@ -30,13 +32,19 @@
             android:name=".villagehall.VillageHallActivity"
             android:exported="false" />
         <activity
+            android:name=".mealfriend.MealFriendActivity"
+            android:exported="false" />
+        <activity
+            android:name=".medicine.MedicineActivity"
+            android:exported="false" />
+        <activity
             android:name=".qr.QrCodeScanActivity"
             android:exported="false" />
         <activity
             android:name=".qr.CaptureActivity"
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"
-            tools:replace="android:screenOrientation"></activity>
+            tools:replace="android:screenOrientation" />
         <activity
             android:name=".home.SignUpActivity"
             android:exported="false" />
@@ -53,6 +61,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".medicine.AlarmReceiver" />
     </application>
 
 </manifest>

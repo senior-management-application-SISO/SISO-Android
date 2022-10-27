@@ -15,6 +15,7 @@ import com.project.siso.databinding.ActivityMainBinding;
 import com.project.siso.databinding.ActivityVillageHallBinding;
 import com.project.siso.home.SignUpActivity;
 import com.project.siso.mealfriend.MealFriendActivity;
+import com.project.siso.medicine.MedicineActivity;
 import com.project.siso.qr.QrCodeScanActivity;
 import com.project.siso.villagehall.VillageHallActivity;
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView ivMenu;
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +52,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setListeners();
+
+
     }
 
     private void setListeners() {
         binding.villageHall.setOnClickListener(v ->
             startActivity(new Intent(getApplicationContext(), VillageHallActivity.class))
         );
+        binding.medicineButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MedicineActivity.class)));
         binding.qrCheck.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), QrCodeScanActivity.class)));
         binding.mealFriendButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MealFriendActivity.class)));
     }

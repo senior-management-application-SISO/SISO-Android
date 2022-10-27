@@ -67,6 +67,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+					android:id="@+id/medicineButton"
                     android:layout_width="180dp"
                     android:layout_height="180dp"
                     android:background="@drawable/round_shadow"
@@ -144,4 +145,5 @@
             </LinearLayout>
         </LinearLayout>
     </GridLayout>
+>>>>>>> befd26b2539de3da4621a2168a7997809ba08b7c
 </androidx.drawerlayout.widget.DrawerLayout>
