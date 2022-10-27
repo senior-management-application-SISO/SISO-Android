@@ -21,6 +21,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="30">
         <activity
+            android:name=".home.TeamPopUpActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
             android:name=".home.DetailSignUpActivity"
             android:exported="false" />
         <activity

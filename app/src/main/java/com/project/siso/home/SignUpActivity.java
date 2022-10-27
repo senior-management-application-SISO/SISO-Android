@@ -25,6 +25,6 @@ public class SignUpActivity extends AppCompatActivity {
     //클릭 이벤트
     private void setListeners() {
         binding.cancelButton.setOnClickListener(v -> finish());
-        binding.settings.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), VillageHallActivity.class)));
+        binding.settings.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), DetailSignUpActivity.class)));
     }
 }

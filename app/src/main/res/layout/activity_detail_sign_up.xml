@@ -50,9 +50,11 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/round_grey"
+                    android:background="@drawable/round"
+                    android:backgroundTint="#9C9C9C"
                     android:fontFamily="@font/suitmedium"
                     android:text="찾기"
+                    android:onClick="mOnPopupClick"
                     android:textColor="@color/white"
                     android:textSize="15dp" />
             </LinearLayout>
@@ -78,7 +80,8 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/round_grey"
+                    android:background="@drawable/round"
+                    android:backgroundTint="#9C9C9C"
                     android:fontFamily="@font/suitmedium"
                     android:text="찾기"
                     android:textColor="@color/white"
@@ -106,7 +109,8 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/round_grey"
+                    android:background="@drawable/round"
+                    android:backgroundTint="#9C9C9C"
                     android:fontFamily="@font/suitmedium"
                     android:text="찾기"
                     android:textColor="@color/white"
@@ -126,7 +130,7 @@
 
             <Button
                 android:id="@+id/signupButton"
-                android:layout_width="140dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:background="@drawable/round"
