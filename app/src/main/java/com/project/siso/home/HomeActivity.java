@@ -100,6 +100,8 @@ public class HomeActivity extends AppCompatActivity {
             }
 
             userInfo = gson.fromJson(result, Users.class);
+            System.out.println(userInfo);
+
 
             if (result.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호가 맞지 않습니다.", Toast.LENGTH_SHORT).show();
@@ -109,6 +111,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 autoLogin.putString("id", user.getUserId());
                 autoLogin.putString("pw", user.getPassword());
+                autoLogin.putLong("villageHallId", userInfo.getVillageHallId());
 
                 autoLogin.apply();
 

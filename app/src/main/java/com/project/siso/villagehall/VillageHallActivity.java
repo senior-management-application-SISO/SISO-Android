@@ -2,6 +2,8 @@ package com.project.siso.villagehall;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.gson.Gson;
@@ -40,7 +42,6 @@ public class VillageHallActivity extends AppCompatActivity {
 //        items.add(new VillageHall("joe", "010-1111-1111"));
 //        items.add(new VillageHall("woo", "010-2222-2222"));
 //        items.add(new VillageHall("hyeon", "010-3333-3333"));
-
         for (Users user : users) {
             items.add(new Users(user.getUserName(), user.getPhoneNumber()));
         }
@@ -53,7 +54,10 @@ public class VillageHallActivity extends AppCompatActivity {
 
     private void getVillageHall() {
         try {
-            String request = "restapi/hallstate/3";
+            SharedPreferences sharedPreferences = getSharedPreferences("sharedPreferences", Activity.MODE_PRIVATE);
+            Long villageHallId = sharedPreferences.getLong("villageHallId", 0L);
+
+            String request = "restapi/hallstate/" + villageHallId;
             GetHttpClient httpclient = new GetHttpClient(request);
             Thread th = new Thread(httpclient);
             th.start();
