@@ -44,13 +44,10 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
         alarmTime.setText(alarmText);
         alarmStarted.setChecked(alarm.isStarted());
 
-
         if (alarm.isRecurring()) {
             alarmRecurring.setImageResource(R.drawable.ic_repeat_black_24dp);
-            String recurringDaysText = alarm.getRecurringDaysText();
-            String days = "";
 
-            System.out.println(alarm.getRecurringDaysText());
+            String days = "";
             if (alarm.getRecurringDaysText().contains("Mo ")) {
                 days += "월 ";
             }
@@ -81,12 +78,10 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
         if (alarm.getTitle().length() != 0) {
             alarmTitle.setText(alarm.getTitle());
         } else {
-            alarmTitle.setText("복용 알람");
+            alarmTitle.setText("복용");
         }
         if (alarm.isRecurring()) {
-            String recurringDaysText = alarm.getRecurringDaysText();
             String days = "";
-
             if (alarm.getRecurringDaysText().contains("Mo ")) {
                 days += "월 ";
             }

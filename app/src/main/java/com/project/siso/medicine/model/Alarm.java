@@ -141,7 +141,7 @@ public class Alarm implements Serializable {
         Bundle bundle = new Bundle();
         bundle.putSerializable(context.getString(R.string.arg_alarm_obj), this);
         intent.putExtra(context.getString(R.string.bundle_alarm_obj), bundle);
-        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, PendingIntent.FLAG_MUTABLE);
+        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, PendingIntent.FLAG_IMMUTABLE);
 
 
 
@@ -191,7 +191,7 @@ public class Alarm implements Serializable {
     public void cancelAlarm(Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, AlarmBroadcastReceiver.class);
-        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, PendingIntent.FLAG_MUTABLE);
+        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, PendingIntent.FLAG_IMMUTABLE);
         alarmManager.cancel(alarmPendingIntent);
         this.started = false;
         String toastText = String.format("Alarm cancelled for %02d:%02d", hour, minute);

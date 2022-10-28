@@ -32,9 +32,10 @@ public final class DayUtil {
         calendar.set(Calendar.MILLISECOND, 0);
         // if alarm time has already passed
         if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
-            return "내일";
-        } else {
-            return "오늘";
+            return "Tomorrow";
+        }
+        else{
+            return "Today";
         }
     }
 }
