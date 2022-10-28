@@ -34,7 +34,7 @@
                 android:layout_margin="30dp"
                 android:orientation="horizontal">
                 <EditText
-                    android:id="@+id/id"
+                    android:id="@+id/txtTeam"
                     android:layout_width="280dp"
                     android:layout_height="60dp"
                     android:background="@drawable/round_shadow"
@@ -65,7 +65,7 @@
                 android:layout_margin="30dp"
                 android:orientation="horizontal">
                 <EditText
-                    android:id="@+id/password"
+                    android:id="@+id/txtAdmin"
                     android:layout_width="280dp"
                     android:layout_height="60dp"
                     android:background="@drawable/round_shadow"
@@ -94,7 +94,7 @@
                 android:layout_margin="30dp"
                 android:orientation="horizontal">
                 <EditText
-                    android:id="@+id/dateOfBirth"
+                    android:id="@+id/txtCountyVillage"
                     android:layout_width="280dp"
                     android:layout_height="60dp"
                     android:background="@drawable/round_shadow"

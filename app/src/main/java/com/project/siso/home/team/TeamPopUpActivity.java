@@ -25,6 +25,7 @@ import java.util.List;
 
 public class TeamPopUpActivity extends AppCompatActivity {
     private ActivityTeamPopUpBinding binding;
+    public static Teams selectedTeamPopup;
 
     ArrayList<Teams> items = new ArrayList<>(); //리사이클러 뷰가 보여줄 대량의 데이터를 가지고 있는 리시트객체
     TeamAdapter adapter;   //리사이클러뷰가 보여줄 뷰을 만들어내는 객체참조변수
@@ -98,7 +99,7 @@ public class TeamPopUpActivity extends AppCompatActivity {
 
     public void mOnClose(View v) {
         Intent intent = new Intent();
-        intent.putExtra("result", "Close Popup");
+        intent.putExtra("result", selectedTeamPopup.getTeamName());
         setResult(RESULT_OK, intent);
 
         finish();

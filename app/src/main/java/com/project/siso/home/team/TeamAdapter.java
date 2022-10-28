@@ -13,6 +13,8 @@ import com.project.siso.home.DetailSignUpActivity;
 
 import java.util.ArrayList;
 
+import static com.project.siso.home.team.TeamPopUpActivity.selectedTeamPopup;
+
 public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
 
     Context context;
@@ -62,6 +64,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     DetailSignUpActivity.selectedTeam = item;
+                    selectedTeamPopup = item;
                 }
             });
         }
