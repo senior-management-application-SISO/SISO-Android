@@ -14,6 +14,7 @@ import com.project.siso.databinding.ActivityMedicineBinding;
 import com.project.siso.databinding.ActivityMedicineSetTimeBinding;
 import com.project.siso.home.HomeActivity;
 import com.project.siso.mealfriend.MealFriendActivity;
+import com.project.siso.medicine.activities.AlarmMainActivity;
 
 public class MedicineActivity extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class MedicineActivity extends AppCompatActivity {
     }
 
     private void setListener() {
-        binding.setTimeButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MedicineSetTimeActivity.class)));
+        binding.setTimeButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), AlarmMainActivity.class)));
 
     }
 

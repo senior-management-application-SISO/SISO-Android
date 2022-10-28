@@ -6,9 +6,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
 
     <application
+        android:name=".medicine.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -54,6 +55,12 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+        <activity android:name=".medicine.activities.RingActivity"
+            android:theme="@style/Theme.AppCompat"/>
+
+        <activity android:name=".medicine.activities.AlarmMainActivity"/>
+
+
         <activity
             android:name=".home.HomeActivity"
             android:exported="true"
@@ -65,7 +72,20 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name=".medicine.broadcastreciever.AlarmBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <receiver android:name=".medicine.AlarmReceiver" />
+
+        <service android:name=".medicine.service.AlarmService" />
+        <service android:name=".medicine.service.RescheduleAlarmsService" />
     </application>
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 </manifest>
