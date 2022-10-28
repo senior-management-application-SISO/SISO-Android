@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -21,10 +19,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.project.siso.databinding.ActivityMainBinding;
 
-import com.project.siso.databinding.ActivityVillageHallBinding;
-import com.project.siso.home.HomeActivity;
 import com.project.siso.mealfriend.MealFriendActivity;
-import com.project.siso.medicine.MedicineActivity;
+import com.project.siso.medicine.activities.AlarmMainActivity;
 import com.project.siso.qr.QrCodeScanActivity;
 import com.project.siso.villagehall.VillageHallActivity;
 
@@ -70,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         binding.villageHall.setOnClickListener(v ->
                 startActivity(new Intent(getApplicationContext(), VillageHallActivity.class))
         );
-        binding.medicineButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MedicineActivity.class)));
+        binding.medicineButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), AlarmMainActivity.class)));
         binding.qrCheck.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), QrCodeScanActivity.class)));
         binding.mealFriendButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MealFriendActivity.class)));
 

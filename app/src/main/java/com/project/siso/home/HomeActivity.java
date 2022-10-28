@@ -95,6 +95,7 @@ public class HomeActivity extends AppCompatActivity {
                 result = postHttpClient.getResult();
                 long end = System.currentTimeMillis();
                 if (end - start > 2000) {
+                    Toast.makeText(getApplicationContext(), "서버 연결을 확인해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
             }
