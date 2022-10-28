@@ -29,19 +29,21 @@ import java.util.Random;
 public class CreateAlarmFragment extends Fragment {
     FragmentCreateAlarmBinding fragmentCreateAlarmBinding;
     private CreateAlarmViewModel createAlarmViewModel;
-    boolean isVibrate=false;
+    boolean isVibrate = false;
     String tone;
     Alarm alarm;
     Ringtone ringtone;
+
     public CreateAlarmFragment() {
         // Required empty public constructor
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         if (getArguments() != null) {
-            alarm= (Alarm) getArguments().getSerializable(getString(R.string.arg_alarm_obj));
+            alarm = (Alarm) getArguments().getSerializable(getString(R.string.arg_alarm_obj));
         }
         createAlarmViewModel = ViewModelProviders.of(this).get(CreateAlarmViewModel.class);
     }
@@ -49,12 +51,12 @@ public class CreateAlarmFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        fragmentCreateAlarmBinding = FragmentCreateAlarmBinding.inflate(inflater,container,false);
+        fragmentCreateAlarmBinding = FragmentCreateAlarmBinding.inflate(inflater, container, false);
         View v = fragmentCreateAlarmBinding.getRoot();
-        tone=RingtoneManager.getActualDefaultRingtoneUri(this.getContext(), RingtoneManager.TYPE_ALARM).toString();
+        tone = RingtoneManager.getActualDefaultRingtoneUri(this.getContext(), RingtoneManager.TYPE_ALARM).toString();
         ringtone = RingtoneManager.getRingtone(getContext(), Uri.parse(tone));
         fragmentCreateAlarmBinding.fragmentCreatealarmSetToneName.setText(ringtone.getTitle(getContext()));
-        if(alarm!=null){
+        if (alarm != null) {
             updateAlarmInfo(alarm);
         }
         fragmentCreateAlarmBinding.fragmentCreatealarmRecurring.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -71,10 +73,9 @@ public class CreateAlarmFragment extends Fragment {
         fragmentCreateAlarmBinding.fragmentCreatealarmScheduleAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(alarm!=null) {
+                if (alarm != null) {
                     updateAlarm();
-                }
-                else{
+                } else {
                     scheduleAlarm();
                 }
 
@@ -96,11 +97,10 @@ public class CreateAlarmFragment extends Fragment {
         fragmentCreateAlarmBinding.fragmentCreatealarmVibrateSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b){
-                    isVibrate=true;
-                }
-                else{
-                    isVibrate=false;
+                if (b) {
+                    isVibrate = true;
+                } else {
+                    isVibrate = false;
                 }
             }
         });
@@ -108,7 +108,7 @@ public class CreateAlarmFragment extends Fragment {
         fragmentCreateAlarmBinding.fragmentCreatealarmTimePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker timePicker, int i, int i1) {
-                fragmentCreateAlarmBinding.fragmentCreatealarmScheduleAlarmHeading.setText(DayUtil.getDay(TimePickerUtil.getTimePickerHour(timePicker),TimePickerUtil.getTimePickerMinute(timePicker)));
+                fragmentCreateAlarmBinding.fragmentCreatealarmScheduleAlarmHeading.setText(DayUtil.getDay(TimePickerUtil.getTimePickerHour(timePicker), TimePickerUtil.getTimePickerMinute(timePicker)));
             }
         });
 
@@ -116,10 +116,10 @@ public class CreateAlarmFragment extends Fragment {
     }
 
     private void scheduleAlarm() {
-        String alarmTitle=getString(R.string.alarm_title);
+        String alarmTitle = getString(R.string.alarm_title);
         int alarmId = new Random().nextInt(Integer.MAX_VALUE);
-        if(!fragmentCreateAlarmBinding.fragmentCreatealarmTitle.getText().toString().isEmpty()){
-            alarmTitle=fragmentCreateAlarmBinding.fragmentCreatealarmTitle.getText().toString();
+        if (!fragmentCreateAlarmBinding.fragmentCreatealarmTitle.getText().toString().isEmpty()) {
+            alarmTitle = fragmentCreateAlarmBinding.fragmentCreatealarmTitle.getText().toString();
         }
         Alarm alarm = new Alarm(
                 alarmId,
@@ -144,11 +144,11 @@ public class CreateAlarmFragment extends Fragment {
         alarm.schedule(getContext());
     }
 
-    private void updateAlarm(){
-        String alarmTitle=getString(R.string.alarm_title);
+    private void updateAlarm() {
+        String alarmTitle = getString(R.string.alarm_title);
 //        int alarmId = new Random().nextInt(Integer.MAX_VALUE);
-        if(!fragmentCreateAlarmBinding.fragmentCreatealarmTitle.getText().toString().isEmpty()){
-            alarmTitle=fragmentCreateAlarmBinding.fragmentCreatealarmTitle.getText().toString();
+        if (!fragmentCreateAlarmBinding.fragmentCreatealarmTitle.getText().toString().isEmpty()) {
+            alarmTitle = fragmentCreateAlarmBinding.fragmentCreatealarmTitle.getText().toString();
         }
         Alarm updatedAlarm = new Alarm(
                 alarm.getAlarmId(),
@@ -178,8 +178,8 @@ public class CreateAlarmFragment extends Fragment {
             ringtone = RingtoneManager.getRingtone(getContext(), uri);
             String title = ringtone.getTitle(getContext());
             if (uri != null) {
-                tone=uri.toString();
-                if(title!=null && !title.isEmpty())
+                tone = uri.toString();
+                if (title != null && !title.isEmpty())
                     fragmentCreateAlarmBinding.fragmentCreatealarmSetToneName.setText(title);
             } else {
                 fragmentCreateAlarmBinding.fragmentCreatealarmSetToneName.setText("");
@@ -187,31 +187,31 @@ public class CreateAlarmFragment extends Fragment {
         }
     }
 
-    private void updateAlarmInfo(Alarm alarm){
+    private void updateAlarmInfo(Alarm alarm) {
         fragmentCreateAlarmBinding.fragmentCreatealarmTitle.setText(alarm.getTitle());
         fragmentCreateAlarmBinding.fragmentCreatealarmTimePicker.setHour(alarm.getHour());
         fragmentCreateAlarmBinding.fragmentCreatealarmTimePicker.setMinute(alarm.getMinute());
-        if(alarm.isRecurring()){
+        if (alarm.isRecurring()) {
             fragmentCreateAlarmBinding.fragmentCreatealarmRecurring.setChecked(true);
             fragmentCreateAlarmBinding.fragmentCreatealarmRecurringOptions.setVisibility(View.VISIBLE);
-            if(alarm.isMonday())
+            if (alarm.isMonday())
                 fragmentCreateAlarmBinding.fragmentCreatealarmCheckMon.setChecked(true);
-            if(alarm.isTuesday())
+            if (alarm.isTuesday())
                 fragmentCreateAlarmBinding.fragmentCreatealarmCheckTue.setChecked(true);
-            if(alarm.isWednesday())
+            if (alarm.isWednesday())
                 fragmentCreateAlarmBinding.fragmentCreatealarmCheckWed.setChecked(true);
-            if(alarm.isThursday())
+            if (alarm.isThursday())
                 fragmentCreateAlarmBinding.fragmentCreatealarmCheckThu.setChecked(true);
-            if(alarm.isFriday())
+            if (alarm.isFriday())
                 fragmentCreateAlarmBinding.fragmentCreatealarmCheckFri.setChecked(true);
-            if(alarm.isSaturday())
+            if (alarm.isSaturday())
                 fragmentCreateAlarmBinding.fragmentCreatealarmCheckSat.setChecked(true);
-            if(alarm.isSunday())
+            if (alarm.isSunday())
                 fragmentCreateAlarmBinding.fragmentCreatealarmCheckSun.setChecked(true);
-            tone=alarm.getTone();
+            tone = alarm.getTone();
             ringtone = RingtoneManager.getRingtone(getContext(), Uri.parse(tone));
             fragmentCreateAlarmBinding.fragmentCreatealarmSetToneName.setText(ringtone.getTitle(getContext()));
-            if(alarm.isVibrate())
+            if (alarm.isVibrate())
                 fragmentCreateAlarmBinding.fragmentCreatealarmVibrateSwitch.setChecked(true);
         }
     }

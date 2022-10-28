@@ -23,7 +23,7 @@ public final class DayUtil {
         throw new Exception("Could not locate day");
     }
 
-    public static String getDay(int hour,int minute){
+    public static String getDay(int hour, int minute) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, hour);
@@ -32,10 +32,9 @@ public final class DayUtil {
         calendar.set(Calendar.MILLISECOND, 0);
         // if alarm time has already passed
         if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
-            return "Tomorrow";
-        }
-        else{
-            return "Today";
+            return "내일";
+        } else {
+            return "오늘";
         }
     }
 }

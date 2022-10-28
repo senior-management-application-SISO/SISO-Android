@@ -25,6 +25,7 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
     private ImageButton deleteAlarm;
     private View itemView;
     private TextView alarmDay;
+
     public AlarmViewHolder(@NonNull ItemAlarmBinding itemAlarmBinding) {
         super(itemAlarmBinding.getRoot());
         alarmTime = itemAlarmBinding.itemAlarmTime;
@@ -32,9 +33,9 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
         alarmRecurring = itemAlarmBinding.itemAlarmRecurring;
         alarmRecurringDays = itemAlarmBinding.itemAlarmRecurringDays;
         alarmTitle = itemAlarmBinding.itemAlarmTitle;
-        deleteAlarm= itemAlarmBinding.itemAlarmRecurringDelete;
+        deleteAlarm = itemAlarmBinding.itemAlarmRecurringDelete;
         alarmDay = itemAlarmBinding.itemAlarmDay;
-        this.itemView=itemAlarmBinding.getRoot();
+        this.itemView = itemAlarmBinding.getRoot();
     }
 
     public void bind(Alarm alarm, OnToggleAlarmListener listener) {
@@ -48,24 +49,23 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
             alarmRecurringDays.setText(alarm.getRecurringDaysText());
         } else {
             alarmRecurring.setImageResource(R.drawable.ic_looks_one_black_24dp);
-            alarmRecurringDays.setText("Once Off");
+            alarmRecurringDays.setText("한 번");
         }
 
         if (alarm.getTitle().length() != 0) {
             alarmTitle.setText(alarm.getTitle());
         } else {
-            alarmTitle.setText("My alarm");
+            alarmTitle.setText("복용 알람");
         }
-        if(alarm.isRecurring()){
+        if (alarm.isRecurring()) {
             alarmDay.setText(alarm.getRecurringDaysText());
-        }
-        else {
-            alarmDay.setText(DayUtil.getDay(alarm.getHour(),alarm.getMinute()));
+        } else {
+            alarmDay.setText(DayUtil.getDay(alarm.getHour(), alarm.getMinute()));
         }
         alarmStarted.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(buttonView.isShown() || buttonView.isPressed())
+                if (buttonView.isShown() || buttonView.isPressed())
                     listener.onToggle(alarm);
             }
         });
@@ -80,7 +80,7 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onItemClick(alarm,view);
+                listener.onItemClick(alarm, view);
             }
         });
     }

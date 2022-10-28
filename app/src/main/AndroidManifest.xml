@@ -55,7 +55,7 @@
             android:exported="false" />
 
         <activity android:name=".medicine.activities.RingActivity"
-            android:theme="@style/Theme.AppCompat"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <activity android:name=".medicine.activities.AlarmMainActivity"/>
 
