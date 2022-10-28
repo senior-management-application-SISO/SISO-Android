@@ -2,6 +2,6 @@
     <string name="app_name">siso</string>
     <string name="arg_alarm_obj">AlarmObject</string>
     <string name="bundle_alarm_obj">BundleAlarmObject</string>
-    <string name="alarm_title">My Alarm</string>
+    <string name="alarm_title">복약</string>
     <string name="dayNightTheme">DayNightTheme</string>
 </resources>

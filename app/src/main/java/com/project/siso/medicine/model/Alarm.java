@@ -143,6 +143,9 @@ public class Alarm implements Serializable {
         intent.putExtra(context.getString(R.string.bundle_alarm_obj), bundle);
         PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, PendingIntent.FLAG_MUTABLE);
 
+
+
+
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, hour);
@@ -203,25 +206,25 @@ public class Alarm implements Serializable {
 
         String days = "";
         if (monday) {
-            days += "월 ";
+            days += "Mo ";
         }
         if (tuesday) {
-            days += "화 ";
+            days += "Tu ";
         }
         if (wednesday) {
-            days += "수 ";
+            days += "We ";
         }
         if (thursday) {
-            days += "목 ";
+            days += "Th ";
         }
         if (friday) {
-            days += "금 ";
+            days += "Fr ";
         }
         if (saturday) {
-            days += "토 ";
+            days += "Sa ";
         }
         if (sunday) {
-            days += "일 ";
+            days += "Su ";
         }
 
         return days;

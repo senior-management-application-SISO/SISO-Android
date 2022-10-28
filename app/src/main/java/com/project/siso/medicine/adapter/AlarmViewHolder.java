@@ -44,12 +44,38 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
         alarmTime.setText(alarmText);
         alarmStarted.setChecked(alarm.isStarted());
 
+
         if (alarm.isRecurring()) {
             alarmRecurring.setImageResource(R.drawable.ic_repeat_black_24dp);
-            alarmRecurringDays.setText(alarm.getRecurringDaysText());
+            String recurringDaysText = alarm.getRecurringDaysText();
+            String days = "";
+
+            System.out.println(alarm.getRecurringDaysText());
+            if (alarm.getRecurringDaysText().contains("Mo ")) {
+                days += "월 ";
+            }
+            if (alarm.getRecurringDaysText().contains("Tu ")) {
+                days += "화 ";
+            }
+            if (alarm.getRecurringDaysText().contains("We ")) {
+                days += "수 ";
+            }
+            if (alarm.getRecurringDaysText().contains("Th ")) {
+                days += "목 ";
+            }
+            if (alarm.getRecurringDaysText().contains("Fr ")) {
+                days += "금 ";
+            }
+            if (alarm.getRecurringDaysText().contains("Sa ")) {
+                days += "토 ";
+            }
+            if (alarm.getRecurringDaysText().contains("Su ")) {
+                days += "일 ";
+            }
+            alarmRecurringDays.setText(days);
         } else {
             alarmRecurring.setImageResource(R.drawable.ic_looks_one_black_24dp);
-            alarmRecurringDays.setText("한 번");
+            alarmRecurringDays.setText("한 번만");
         }
 
         if (alarm.getTitle().length() != 0) {
@@ -58,7 +84,31 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
             alarmTitle.setText("복용 알람");
         }
         if (alarm.isRecurring()) {
-            alarmDay.setText(alarm.getRecurringDaysText());
+            String recurringDaysText = alarm.getRecurringDaysText();
+            String days = "";
+
+            if (alarm.getRecurringDaysText().contains("Mo ")) {
+                days += "월 ";
+            }
+            if (alarm.getRecurringDaysText().contains("Tu ")) {
+                days += "화 ";
+            }
+            if (alarm.getRecurringDaysText().contains("We ")) {
+                days += "수 ";
+            }
+            if (alarm.getRecurringDaysText().contains("Th ")) {
+                days += "목 ";
+            }
+            if (alarm.getRecurringDaysText().contains("Fr ")) {
+                days += "금 ";
+            }
+            if (alarm.getRecurringDaysText().contains("Sa ")) {
+                days += "토 ";
+            }
+            if (alarm.getRecurringDaysText().contains("Su ")) {
+                days += "일 ";
+            }
+            alarmDay.setText(days);
         } else {
             alarmDay.setText(DayUtil.getDay(alarm.getHour(), alarm.getMinute()));
         }
