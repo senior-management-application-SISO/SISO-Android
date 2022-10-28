@@ -24,9 +24,6 @@
         <activity
             android:name=".home.DetailSignUpActivity"
             android:exported="false" />
-        <activity
-            android:name=".medicine.MedicineSetTimeActivity"
-            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
@@ -37,9 +34,6 @@
             android:exported="false" />
         <activity
             android:name=".mealfriend.MealFriendActivity"
-            android:exported="false" />
-        <activity
-            android:name=".medicine.MedicineActivity"
             android:exported="false" />
         <activity
             android:name=".qr.QrCodeScanActivity"
@@ -55,6 +49,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
         <activity android:name=".medicine.activities.RingActivity"
             android:theme="@style/Theme.AppCompat"/>
 
@@ -77,8 +72,6 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name=".medicine.AlarmReceiver" />
 
         <service android:name=".medicine.service.AlarmService" />
         <service android:name=".medicine.service.RescheduleAlarmsService" />
