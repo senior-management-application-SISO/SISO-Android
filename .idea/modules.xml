@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SISO-Android.siso.iml" filepath="$PROJECT_DIR$/.idea/modules/SISO-Android.siso.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SISO-Android.siso.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SISO-Android.siso.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SISO-Android.siso.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SISO-Android.siso.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SISO-Android.siso.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SISO-Android.siso.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SISO-Android.siso.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SISO-Android.siso.app.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/siso.iml" filepath="$PROJECT_DIR$/.idea/modules/siso.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/siso.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/siso.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/siso.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/siso.app.androidTest.iml" />
