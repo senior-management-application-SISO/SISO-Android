@@ -8,13 +8,21 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.project.siso.databinding.ActivityDetailSignUpBinding;
+import com.project.siso.home.admin.Admin;
+import com.project.siso.home.admin.AdminPopUpActivity;
 import com.project.siso.home.team.TeamPopUpActivity;
 import com.project.siso.home.team.Teams;
+import com.project.siso.home.villagehall.VillageHall;
+import com.project.siso.home.villagehall.VillageHallPopUpActivity;
 
 public class DetailSignUpActivity extends AppCompatActivity {
     private ActivityDetailSignUpBinding binding;
 
+    //최종 입력한 정보
+    public static Admin selectedAdmin;
     public static Teams selectedTeam;
+    public static VillageHall selectedVillageHall;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,21 +30,25 @@ public class DetailSignUpActivity extends AppCompatActivity {
         binding = ActivityDetailSignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setListeners();
-    }
-
-    //클릭 이벤트
-    private void setListeners() {
-        binding.searchAdmin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
     }
 
     public void mOnPopupClick(View v) {
         //데이터 담아서 팝업(액티비티) n호출
         Intent intent = new Intent(this, TeamPopUpActivity.class);
+        intent.putExtra("data", "Popup");
+        startActivityForResult(intent, 1);
+    }
+
+    public void mOnPopupClick2(View v) {
+        //데이터 담아서 팝업(액티비티) n호출
+        Intent intent = new Intent(this, AdminPopUpActivity.class);
+        intent.putExtra("data", "Popup");
+        startActivityForResult(intent, 1);
+    }
+
+    public void mOnPopupClick3(View v) {
+        //데이터 담아서 팝업(액티비티) n호출
+        Intent intent = new Intent(this, VillageHallPopUpActivity.class);
         intent.putExtra("data", "Popup");
         startActivityForResult(intent, 1);
     }

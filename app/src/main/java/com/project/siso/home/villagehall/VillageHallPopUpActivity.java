@@ -1,4 +1,4 @@
-package com.project.siso.home.team;
+package com.project.siso.home.villagehall;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,25 +11,29 @@ import android.view.Window;
 
 import com.google.gson.Gson;
 import com.project.siso.databinding.ActivityTeamPopUpBinding;
-import com.project.siso.home.DetailSignUpActivity;
+import com.project.siso.databinding.ActivityVillageHallBinding;
+import com.project.siso.databinding.ActivityVillageHallPopUpBinding;
+import com.project.siso.home.team.TeamAdapter;
+import com.project.siso.home.team.Teams;
 import com.project.siso.httpserver.GetHttpClient;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TeamPopUpActivity extends AppCompatActivity {
-    private ActivityTeamPopUpBinding binding;
+public class VillageHallPopUpActivity extends AppCompatActivity {
+    private ActivityVillageHallPopUpBinding binding;
 
-    ArrayList<Teams> items = new ArrayList<>(); //리사이클러 뷰가 보여줄 대량의 데이터를 가지고 있는 리시트객체
-    TeamAdapter adapter;   //리사이클러뷰가 보여줄 뷰을 만들어내는 객체참조변수
+    ArrayList<VillageHall> items = new ArrayList<>(); //리사이클러 뷰가 보여줄 대량의 데이터를 가지고 있는 리시트객체
+    VillageHallAdapter adapter;   //리사이클러뷰가 보여줄 뷰을 만들어내는 객체참조변수
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        binding = ActivityTeamPopUpBinding.inflate(getLayoutInflater());
+        binding = ActivityVillageHallPopUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
@@ -45,7 +49,7 @@ public class TeamPopUpActivity extends AppCompatActivity {
         binding.searchTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTeamList(binding.searchTeamEdit.getText().toString());
+                setTeamList(binding.searchVillageHallEdit.getText().toString());
             }
         });
     }
@@ -59,12 +63,12 @@ public class TeamPopUpActivity extends AppCompatActivity {
 
         //아답터생성 및 리사이클러뷰에 설정
         super.onResume();
-        adapter = new TeamAdapter(this, items);
+        adapter = new VillageHallAdapter(this, items);
         binding.recycler.setAdapter(adapter);
     }
 
-    private void setTeamList(String teamName) {
-        GetHttpClient httpclient = new GetHttpClient("restapi/team/" + teamName + "/" + DetailSignUpActivity.selectedAdmin.getId());
+    private void setTeamList(String villageHallName) {
+        GetHttpClient httpclient = new GetHttpClient("restapi/villagehall/" + villageHallName);
         Thread th = new Thread(httpclient);
         th.start();
         String result = null;
@@ -80,14 +84,14 @@ public class TeamPopUpActivity extends AppCompatActivity {
         }
         Gson gson = new Gson();
 
-        Teams[] teams = gson.fromJson(result.toString(), Teams[].class);
-        List<Teams> list = Arrays.asList(teams);
+        VillageHall[] villageHalls = gson.fromJson(result.toString(), VillageHall[].class);
+        List<VillageHall> list = Arrays.asList(villageHalls);
 
-        for (Teams team : list) {
-            items.add(new Teams(team.getTeamName(), team.getTeamAddress()));
+        for (VillageHall villageHall : list) {
+            items.add(new VillageHall(villageHall.getHallName(), villageHall.getAddress()));
         }
 
-        adapter = new TeamAdapter(this, items);
+        adapter = new VillageHallAdapter(this, items);
         binding.recycler.setAdapter(adapter);
     }
 

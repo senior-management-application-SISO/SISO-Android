@@ -17,12 +17,12 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
-import com.project.siso.databinding.ActivityMainBinding;
 
+import com.project.siso.databinding.ActivityMainBinding;
 import com.project.siso.mealfriend.MealFriendActivity;
 import com.project.siso.medicine.activities.AlarmMainActivity;
 import com.project.siso.qr.QrCodeScanActivity;
-import com.project.siso.villagehall.VillageHallActivity;
+import com.project.siso.villagehall.UsersVillageHallActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Main_Activity";
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.villageHall.setOnClickListener(v ->
-                startActivity(new Intent(getApplicationContext(), VillageHallActivity.class))
+                startActivity(new Intent(getApplicationContext(), UsersVillageHallActivity.class))
         );
         binding.medicineButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), AlarmMainActivity.class)));
         binding.qrCheck.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), QrCodeScanActivity.class)));

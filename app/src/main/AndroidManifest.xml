@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".medicine.App"
@@ -22,6 +25,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="30">
         <activity
+            android:name=".home.villagehall.VillageHallPopUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
+        <activity
+            android:name=".home.admin.AdminPopUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
+        <activity
             android:name=".home.team.TeamPopUpActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
@@ -34,7 +45,7 @@
             android:value="barcode" />
 
         <activity
-            android:name=".villagehall.VillageHallActivity"
+            android:name=".villagehall.UsersVillageHallActivity"
             android:exported="false" />
         <activity
             android:name=".mealfriend.MealFriendActivity"
@@ -53,13 +64,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
-        <activity android:name=".medicine.activities.RingActivity"
-            android:theme="@style/Theme.AppCompat"/>
-
-        <activity android:name=".medicine.activities.AlarmMainActivity"/>
-
-
+        <activity
+            android:name=".medicine.activities.RingActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity android:name=".medicine.activities.AlarmMainActivity" />
         <activity
             android:name=".home.HomeActivity"
             android:exported="true"
@@ -81,8 +89,4 @@
         <service android:name=".medicine.service.RescheduleAlarmsService" />
     </application>
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 </manifest>

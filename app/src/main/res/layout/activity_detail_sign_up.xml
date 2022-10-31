@@ -34,6 +34,36 @@
                 android:layout_margin="30dp"
                 android:orientation="horizontal">
                 <EditText
+                    android:id="@+id/password"
+                    android:layout_width="280dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/round_shadow"
+                    android:fontFamily="@font/suitmedium"
+                    android:hint="관리자"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:textSize="15dp"
+                    android:focusable="false"/>
+                <Button
+                    android:id="@+id/search_admin"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/round"
+                    android:backgroundTint="#9C9C9C"
+                    android:fontFamily="@font/suitmedium"
+                    android:text="찾기"
+                    android:onClick="mOnPopupClick2"
+                    android:textColor="@color/white"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:orientation="horizontal">
+                <EditText
                     android:id="@+id/id"
                     android:layout_width="280dp"
                     android:layout_height="60dp"
@@ -59,34 +89,7 @@
                     android:textSize="15dp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:orientation="horizontal">
-                <EditText
-                    android:id="@+id/password"
-                    android:layout_width="280dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/round_shadow"
-                    android:fontFamily="@font/suitmedium"
-                    android:hint="관리자"
-                    android:paddingStart="30dp"
-                    android:paddingEnd="30dp"
-                    android:textSize="15dp"
-                    android:focusable="false"/>
-                <Button
-                    android:id="@+id/search_admin"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/round"
-                    android:backgroundTint="#9C9C9C"
-                    android:fontFamily="@font/suitmedium"
-                    android:text="찾기"
-                    android:textColor="@color/white"
-                    android:textSize="15dp" />
-            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -113,6 +116,7 @@
                     android:backgroundTint="#9C9C9C"
                     android:fontFamily="@font/suitmedium"
                     android:text="찾기"
+                    android:onClick="mOnPopupClick3"
                     android:textColor="@color/white"
                     android:textSize="15dp" />
             </LinearLayout>
