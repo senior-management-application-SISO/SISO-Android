@@ -3,29 +3,32 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/activity_admin_pop_up.xml" value="0.35597826086956524" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/activity_detail_sign_up.xml" value="0.17806484295845998" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/activity_home.xml" value="0.17806484295845998" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/activity_main.xml" value="0.17806484295845998" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/activity_ring.xml" value="0.3269927536231884" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/activity_sign_up.xml" value="0.17806484295845998" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/activity_team_pop_up.xml" value="0.17806484295845998" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/activity_village_hall.xml" value="0.17806484295845998" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/activity_village_hall_pop_up.xml" value="0.3515625" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/fragment_alarms_list.xml" value="0.3269927536231884" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/fragment_create_alarm.xml" value="0.3269927536231884" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/item_admin.xml" value="0.35597826086956524" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/item_alarm.xml" value="0.3269927536231884" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/item_meal_friend.xml" value="0.35597826086956524" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/item_team.xml" value="0.3651041666666667" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/item_village_hall.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/item_village_hall_user_list.xml" value="0.1875" />
-        <entry key="..\:/Users/qlqkt/AndroidStudioProjects/SISO/app/src/main/res/layout/toolbar_main.xml" value="0.1875" />
+        <entry key="..\:/Users/jjw34/Desktop/Project_SISO/03_GitSourceCode/SISO-Android/SISO-Android/app/src/main/res/layout/activity_detail_sign_up.xml" value="0.16770833333333332" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable-v24/ic_alarm_white_24dp.xml" value="0.1955" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable-v24/round_strong.xml" value="0.1955" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable-v24/shape_oval_filled.xml" value="0.1955" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable-v24/toggle_bg.xml" value="0.1955" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable-v24/toggle_text_color.xml" value="0.1955" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1955" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/drawable/round.xml" value="0.1955" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_alram_main.xml" value="0.1875" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_detail_sign_up.xml" value="0.1875" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_home.xml" value="0.14947916666666666" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_main.xml" value="0.18704710144927536" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_meal_friend.xml" value="0.18704710144927536" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_medicine.xml" value="0.1875" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_medicine_set_time.xml" value="0.1875" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_qr_code_scan.xml" value="0.1875" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_ring.xml" value="0.25" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_village_hall.xml" value="0.1875" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/activity_village_hall_pop_up.xml" value="0.1875" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/fragment_alarms_list.xml" value="0.1875" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/fragment_create_alarm.xml" value="0.33" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/header.xml" value="0.1875" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/item_alarm.xml" value="0.5" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/item_meal_friend.xml" value="0.1875" />
+        <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/notification_foreground.xml" value="0.140625" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/layout/toolbar_main.xml" value="0.1875" />
         <entry key="..\:/Users/wb/Desktop/siso/siso-android/app/src/main/res/menu/menu_main.xml" value="0.33" />
       </map>
@@ -36,12 +39,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.17806484295845998" />
-      </ProjectState>
-    </option>
   </component>
 </project>

@@ -86,7 +86,7 @@ public class TeamPopUpActivity extends AppCompatActivity {
         List<Teams> list = Arrays.asList(teams);
 
         for (Teams team : list) {
-            items.add(new Teams(team.getTeamName(), team.getTeamAddress()));
+            items.add(new Teams(team.getId(),team.getTeamName(), team.getTeamAddress(), team.getAdminId()));
         }
 
         adapter = new TeamAdapter(this, items);
@@ -118,7 +118,7 @@ public class TeamPopUpActivity extends AppCompatActivity {
         List<Teams> list = Arrays.asList(teams);
 
         for (Teams team : list) {
-            items.add(new Teams(team.getTeamName(), team.getTeamAddress()));
+            items.add(new Teams(team.getId(),team.getTeamName(), team.getTeamAddress(), team.getAdminId()));
         }
 
         adapter = new TeamAdapter(this, items);

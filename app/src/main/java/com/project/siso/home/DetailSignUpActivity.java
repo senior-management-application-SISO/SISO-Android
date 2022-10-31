@@ -51,7 +51,6 @@ public class DetailSignUpActivity extends AppCompatActivity {
                 } else if (selectedVillageHall == null) {
                     Toast.makeText(getApplicationContext(), "마을회관을 설정해주세요.", Toast.LENGTH_SHORT).show();
                 } else {
-                    //회원가입
                     finish();
                 }
 

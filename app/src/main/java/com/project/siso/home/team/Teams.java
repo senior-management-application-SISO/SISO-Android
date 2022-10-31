@@ -18,11 +18,35 @@ public class Teams {
         this.teamAddress = teamAddress;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getTeamName() {
         return teamName;
     }
 
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
     public String getTeamAddress() {
         return teamAddress;
+    }
+
+    public void setTeamAddress(String teamAddress) {
+        this.teamAddress = teamAddress;
+    }
+
+    public Long getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(Long adminId) {
+        this.adminId = adminId;
     }
 }

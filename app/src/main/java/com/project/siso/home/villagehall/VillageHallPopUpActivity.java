@@ -1,6 +1,7 @@
 package com.project.siso.home.villagehall;
 
 import static com.project.siso.home.DetailSignUpActivity.RESULT_OK_SELECTED_VH;
+import static com.project.siso.home.DetailSignUpActivity.selectedAdmin;
 import static com.project.siso.home.DetailSignUpActivity.selectedVillageHall;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -66,16 +67,9 @@ public class VillageHallPopUpActivity extends AppCompatActivity {
 
         //아답터생성 및 리사이클러뷰에 설정
         super.onResume();
-        adapter = new VillageHallAdapter(this, items);
-        binding.recycler.setAdapter(adapter);
-    }
-
-    private void setTeamList(String villageHallName) {
         items.clear();
-        adapter = new VillageHallAdapter(this, items);
-        binding.recycler.setAdapter(adapter);
 
-        GetHttpClient httpclient = new GetHttpClient("restapi/villagehall/" + villageHallName);
+        GetHttpClient httpclient = new GetHttpClient("restapi/villagehall/" + selectedAdmin.getId());
         Thread th = new Thread(httpclient);
         th.start();
         String result = null;
@@ -95,7 +89,39 @@ public class VillageHallPopUpActivity extends AppCompatActivity {
         List<VillageHall> list = Arrays.asList(villageHalls);
 
         for (VillageHall villageHall : list) {
-            items.add(new VillageHall(villageHall.getHallName(), villageHall.getAddress()));
+            items.add(new VillageHall(villageHall.getId(), villageHall.getHallName(), villageHall.getLat(), villageHall.getLon(), villageHall.getAddress(), villageHall.getAdminId()));
+        }
+
+        adapter = new VillageHallAdapter(this, items);
+        binding.recycler.setAdapter(adapter);
+    }
+
+    private void setTeamList(String villageHallName) {
+        items.clear();
+        adapter = new VillageHallAdapter(this, items);
+        binding.recycler.setAdapter(adapter);
+
+        GetHttpClient httpclient = new GetHttpClient("restapi/villagehall/" + selectedAdmin.getId() + "/" + villageHallName);
+        Thread th = new Thread(httpclient);
+        th.start();
+        String result = null;
+
+        long start = System.currentTimeMillis();
+
+        while (result == null) {
+            result = httpclient.getResult();
+            long end = System.currentTimeMillis();
+            if (end - start > 2000) {
+                return;
+            }
+        }
+        Gson gson = new Gson();
+
+        VillageHall[] villageHalls = gson.fromJson(result.toString(), VillageHall[].class);
+        List<VillageHall> list = Arrays.asList(villageHalls);
+
+        for (VillageHall villageHall : list) {
+            items.add(new VillageHall(villageHall.getId(), villageHall.getHallName(), villageHall.getLat(), villageHall.getLon(), villageHall.getAddress(), villageHall.getAdminId()));
         }
 
         adapter = new VillageHallAdapter(this, items);
