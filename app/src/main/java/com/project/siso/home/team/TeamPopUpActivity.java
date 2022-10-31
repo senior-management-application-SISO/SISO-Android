@@ -1,6 +1,7 @@
 package com.project.siso.home.team;
 
 import static com.project.siso.home.DetailSignUpActivity.RESULT_OK_SELECTED_TEAM;
+import static com.project.siso.home.DetailSignUpActivity.selectedTeam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,7 +23,7 @@ import java.util.List;
 
 public class TeamPopUpActivity extends AppCompatActivity {
     private ActivityTeamPopUpBinding binding;
-    public static Teams selectedTeamPopup;
+
 
     ArrayList<Teams> items = new ArrayList<>(); //리사이클러 뷰가 보여줄 대량의 데이터를 가지고 있는 리시트객체
     TeamAdapter adapter;   //리사이클러뷰가 보여줄 뷰을 만들어내는 객체참조변수
@@ -126,7 +127,7 @@ public class TeamPopUpActivity extends AppCompatActivity {
 
     public void mOnClose(View v) {
         Intent intent = new Intent();
-        intent.putExtra("teamName", selectedTeamPopup.getTeamName());
+        intent.putExtra("teamName", selectedTeam.getTeamName());
         setResult(RESULT_OK_SELECTED_TEAM, intent);
 
         finish();
