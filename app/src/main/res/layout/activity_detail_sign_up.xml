@@ -32,18 +32,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
+                android:gravity="center"
                 android:orientation="horizontal">
+
                 <EditText
-                    android:id="@+id/password"
-                    android:layout_width="280dp"
+                    android:id="@+id/txtAdmin"
+                    android:layout_width="250dp"
                     android:layout_height="60dp"
                     android:background="@drawable/round_shadow"
+                    android:focusable="false"
                     android:fontFamily="@font/suitmedium"
                     android:hint="관리자"
                     android:paddingStart="30dp"
                     android:paddingEnd="30dp"
-                    android:textSize="15dp"
-                    android:focusable="false"/>
+                    android:textSize="15dp" />
+
                 <Button
                     android:id="@+id/search_admin"
                     android:layout_width="50dp"
@@ -52,8 +55,8 @@
                     android:background="@drawable/round"
                     android:backgroundTint="#9C9C9C"
                     android:fontFamily="@font/suitmedium"
+                    android:onClick="mOnPopupClick1"
                     android:text="찾기"
-                    android:onClick="mOnPopupClick2"
                     android:textColor="@color/white"
                     android:textSize="15dp" />
             </LinearLayout>
@@ -62,19 +65,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
+                android:gravity="center"
                 android:orientation="horizontal">
+
                 <EditText
-                    android:id="@+id/id"
-                    android:layout_width="280dp"
+                    android:id="@+id/txtTeam"
+                    android:layout_width="250dp"
                     android:layout_height="60dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/round_shadow"
+                    android:focusable="false"
                     android:fontFamily="@font/suitmedium"
                     android:hint="소속"
-                    android:layout_gravity="center"
                     android:paddingStart="30dp"
                     android:paddingEnd="30dp"
-                    android:textSize="15dp"
-                    android:focusable="false"/>
+                    android:textSize="15dp" />
+
                 <Button
                     android:id="@+id/search_team"
                     android:layout_width="50dp"
@@ -83,30 +89,31 @@
                     android:background="@drawable/round"
                     android:backgroundTint="#9C9C9C"
                     android:fontFamily="@font/suitmedium"
+                    android:onClick="mOnPopupClick2"
                     android:text="찾기"
-                    android:onClick="mOnPopupClick"
                     android:textColor="@color/white"
                     android:textSize="15dp" />
             </LinearLayout>
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
+                android:gravity="center"
                 android:orientation="horizontal">
+
                 <EditText
-                    android:id="@+id/dateOfBirth"
-                    android:layout_width="280dp"
+                    android:id="@+id/txtCountyVillage"
+                    android:layout_width="250dp"
                     android:layout_height="60dp"
                     android:background="@drawable/round_shadow"
+                    android:focusable="false"
                     android:fontFamily="@font/suitmedium"
                     android:hint="마을회관"
                     android:paddingStart="30dp"
                     android:paddingEnd="30dp"
-                    android:textSize="15dp"
-                    android:focusable="false"/>
+                    android:textSize="15dp" />
+
                 <Button
                     android:id="@+id/search_villageHall"
                     android:layout_width="50dp"
@@ -115,8 +122,8 @@
                     android:background="@drawable/round"
                     android:backgroundTint="#9C9C9C"
                     android:fontFamily="@font/suitmedium"
-                    android:text="찾기"
                     android:onClick="mOnPopupClick3"
+                    android:text="찾기"
                     android:textColor="@color/white"
                     android:textSize="15dp" />
             </LinearLayout>

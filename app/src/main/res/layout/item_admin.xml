@@ -36,6 +36,16 @@
             android:text="관리자 번호"
             android:textSize="15dp" />
 
+        <TextView
+            android:id="@+id/county"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="관리자 소속"
+            android:textSize="15dp" />
+
     </LinearLayout>
 
 

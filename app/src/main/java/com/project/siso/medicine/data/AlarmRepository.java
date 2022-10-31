@@ -35,7 +35,7 @@ public class AlarmRepository {
         return alarmsLiveData;
     }
 
-    public void delete(int alarmId){
+    public void delete(int alarmId) {
         AlarmDatabase.databaseWriteExecutor.execute(() -> {
             alarmDao.delete(alarmId);
         });

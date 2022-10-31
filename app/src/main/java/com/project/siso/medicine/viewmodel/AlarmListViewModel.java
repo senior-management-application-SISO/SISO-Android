@@ -30,7 +30,7 @@ public class AlarmListViewModel extends AndroidViewModel {
         return alarmsLiveData;
     }
 
-    public void delete(int alarmId){
+    public void delete(int alarmId) {
         alarmRepository.delete(alarmId);
     }
 }

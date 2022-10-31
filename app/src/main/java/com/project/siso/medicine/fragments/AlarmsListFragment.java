@@ -28,6 +28,7 @@ public class AlarmsListFragment extends Fragment implements OnToggleAlarmListene
     private RecyclerView alarmsRecyclerView;
     private FloatingActionButton addAlarm;
     private FragmentAlarmsListBinding fragmentAlarmsListBinding;
+
     public AlarmsListFragment() {
         // Required empty public constructor
     }
@@ -51,7 +52,7 @@ public class AlarmsListFragment extends Fragment implements OnToggleAlarmListene
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        fragmentAlarmsListBinding = FragmentAlarmsListBinding.inflate(inflater,container,false);
+        fragmentAlarmsListBinding = FragmentAlarmsListBinding.inflate(inflater, container, false);
         View view = fragmentAlarmsListBinding.getRoot();
 
         alarmsRecyclerView = fragmentAlarmsListBinding.fragmentListalarmsRecylerView;
@@ -88,11 +89,11 @@ public class AlarmsListFragment extends Fragment implements OnToggleAlarmListene
     }
 
     @Override
-    public void onItemClick(Alarm alarm,View view) {
+    public void onItemClick(Alarm alarm, View view) {
         if (alarm.isStarted())
             alarm.cancelAlarm(getContext());
         Bundle args = new Bundle();
-        args.putSerializable(getString(R.string.arg_alarm_obj),alarm);
-        Navigation.findNavController(view).navigate(R.id.action_alarmsListFragment_to_createAlarmFragment,args);
+        args.putSerializable(getString(R.string.arg_alarm_obj), alarm);
+        Navigation.findNavController(view).navigate(R.id.action_alarmsListFragment_to_createAlarmFragment, args);
     }
 }

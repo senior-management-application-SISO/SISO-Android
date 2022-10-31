@@ -1,5 +1,7 @@
 package com.project.siso.home.admin;
 
+import static com.project.siso.home.DetailSignUpActivity.RESULT_OK_SELECTED_ADMIN;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,6 +14,7 @@ import android.view.Window;
 import com.google.gson.Gson;
 import com.project.siso.databinding.ActivityAdminPopUpBinding;
 import com.project.siso.databinding.ActivityTeamPopUpBinding;
+import com.project.siso.home.DetailSignUpActivity;
 import com.project.siso.home.team.TeamAdapter;
 import com.project.siso.home.team.Teams;
 import com.project.siso.httpserver.GetHttpClient;
@@ -52,8 +55,11 @@ public class AdminPopUpActivity extends AppCompatActivity {
         });
     }
 
-
     private void setAdminList(String adminName) {
+        items.clear();
+        adapter = new AdminAdapter(this, items);
+        binding.recycler.setAdapter(adapter);
+
         GetHttpClient httpclient = new GetHttpClient("restapi/admin/" + adminName);
         Thread th = new Thread(httpclient);
         th.start();
@@ -74,18 +80,12 @@ public class AdminPopUpActivity extends AppCompatActivity {
         List<Admin> list = Arrays.asList(admins);
 
         for (Admin admin : list) {
-            items.add(new Admin(admin.getAdminName(), admin.getAdminPhoneNumber()));
+            items.add(new Admin(admin.getId(), admin.getAdminName(), admin.getAdminId(), admin.getAdminPhoneNumber(), admin.getCountyOfficeId()));
         }
 
         adapter = new AdminAdapter(this, items);
         binding.recycler.setAdapter(adapter);
     }
-
-
-
-
-
-
 
     @Override
     protected void onResume() {
@@ -94,8 +94,6 @@ public class AdminPopUpActivity extends AppCompatActivity {
 //        items.add(new Teams("team2", "address2"));
 //        items.add(new Teams("team3", "address3"));
 
-
-
         //아답터생성 및 리사이클러뷰에 설정
         super.onResume();
         adapter = new AdminAdapter(this, items);
@@ -103,16 +101,10 @@ public class AdminPopUpActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
-
-
     public void mOnClose(View v) {
         Intent intent = new Intent();
-        intent.putExtra("result", "Close Popup");
-        setResult(RESULT_OK, intent);
+        intent.putExtra("adminName", DetailSignUpActivity.selectedAdmin.getAdminName());
+        setResult(RESULT_OK_SELECTED_ADMIN, intent);
 
         finish();
     }
@@ -123,10 +115,5 @@ public class AdminPopUpActivity extends AppCompatActivity {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        return;
     }
 }

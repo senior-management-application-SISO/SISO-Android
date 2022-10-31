@@ -16,20 +16,20 @@ import java.util.Calendar;
 
 public class AlarmBroadcastReceiver extends BroadcastReceiver {
     Alarm alarm;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
             String toastText = String.format("Alarm Reboot");
-            Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
             startRescheduleAlarmsService(context);
-        }
-        else {
-            Bundle bundle=intent.getBundleExtra(context.getString(R.string.bundle_alarm_obj));
-            if (bundle!=null)
-                alarm =(Alarm)bundle.getSerializable(context.getString(R.string.arg_alarm_obj));
+        } else {
+            Bundle bundle = intent.getBundleExtra(context.getString(R.string.bundle_alarm_obj));
+            if (bundle != null)
+                alarm = (Alarm) bundle.getSerializable(context.getString(R.string.arg_alarm_obj));
             String toastText = String.format("Alarm Received");
-            Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
-            if(alarm!=null) {
+//            Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
+            if (alarm != null) {
                 if (!alarm.isRecurring()) {
                     startAlarmService(context, alarm);
                 } else {
@@ -46,7 +46,7 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
         calendar.setTimeInMillis(System.currentTimeMillis());
         int today = calendar.get(Calendar.DAY_OF_WEEK);
 
-        switch(today) {
+        switch (today) {
             case Calendar.MONDAY:
                 if (alarm1.isMonday())
                     return true;
@@ -81,15 +81,16 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
 
     private void startAlarmService(Context context, Alarm alarm1) {
         Intent intentService = new Intent(context, AlarmService.class);
-        Bundle bundle=new Bundle();
-        bundle.putSerializable(context.getString(R.string.arg_alarm_obj),alarm1);
-        intentService.putExtra(context.getString(R.string.bundle_alarm_obj),bundle);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(context.getString(R.string.arg_alarm_obj), alarm1);
+        intentService.putExtra(context.getString(R.string.bundle_alarm_obj), bundle);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(intentService);
         } else {
             context.startService(intentService);
         }
     }
+
     private void startRescheduleAlarmsService(Context context) {
         Intent intentService = new Intent(context, RescheduleAlarmsService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

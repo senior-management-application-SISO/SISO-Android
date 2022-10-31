@@ -32,7 +32,7 @@ public class Alarm implements Serializable {
     private String tone;
     private boolean vibrate;
 
-    public Alarm(int alarmId, int hour, int minute, String title, boolean started, boolean recurring, boolean monday, boolean tuesday, boolean wednesday, boolean thursday, boolean friday, boolean saturday, boolean sunday, String tone,boolean vibrate) {
+    public Alarm(int alarmId, int hour, int minute, String title, boolean started, boolean recurring, boolean monday, boolean tuesday, boolean wednesday, boolean thursday, boolean friday, boolean saturday, boolean sunday, String tone, boolean vibrate) {
         this.alarmId = alarmId;
         this.hour = hour;
         this.minute = minute;
@@ -46,9 +46,10 @@ public class Alarm implements Serializable {
         this.saturday = saturday;
         this.sunday = sunday;
         this.title = title;
-        this.vibrate=vibrate;
-        this.tone=tone;
+        this.vibrate = vibrate;
+        this.tone = tone;
     }
+
     public int getHour() {
         return hour;
     }
@@ -137,10 +138,13 @@ public class Alarm implements Serializable {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
         Intent intent = new Intent(context, AlarmBroadcastReceiver.class);
-        Bundle bundle=new Bundle();
-        bundle.putSerializable(context.getString(R.string.arg_alarm_obj),this);
-        intent.putExtra(context.getString(R.string.bundle_alarm_obj),bundle);
-        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, PendingIntent.FLAG_MUTABLE);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(context.getString(R.string.arg_alarm_obj), this);
+        intent.putExtra(context.getString(R.string.bundle_alarm_obj), bundle);
+        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, PendingIntent.FLAG_IMMUTABLE);
+
+
+
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
@@ -161,7 +165,7 @@ public class Alarm implements Serializable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            Toast.makeText(context, toastText, Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, toastText, Toast.LENGTH_LONG).show();
 
             alarmManager.setExact(
                     AlarmManager.RTC_WAKEUP,
@@ -170,7 +174,7 @@ public class Alarm implements Serializable {
             );
         } else {
             String toastText = String.format("Recurring Alarm %s scheduled for %s at %02d:%02d", title, getRecurringDaysText(), hour, minute);
-            Toast.makeText(context, toastText, Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, toastText, Toast.LENGTH_LONG).show();
 
             final long RUN_DAILY = 24 * 60 * 60 * 1000;
             alarmManager.setRepeating(
@@ -187,11 +191,11 @@ public class Alarm implements Serializable {
     public void cancelAlarm(Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, AlarmBroadcastReceiver.class);
-        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, PendingIntent.FLAG_MUTABLE);
+        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, PendingIntent.FLAG_IMMUTABLE);
         alarmManager.cancel(alarmPendingIntent);
         this.started = false;
         String toastText = String.format("Alarm cancelled for %02d:%02d", hour, minute);
-        Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
         Log.i("cancel", toastText);
     }
 

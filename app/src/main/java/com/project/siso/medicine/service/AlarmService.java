@@ -66,11 +66,10 @@ public class AlarmService extends Service {
             }
         }
 
-
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("Ring Ring .. Ring Ring")
+                .setContentTitle("siso - 복약 알림")
                 .setContentText(alarmTitle)
-                .setSmallIcon(R.drawable.ic_alarm_white_24dp)
+                .setSmallIcon(R.drawable.ic_capsule)
                 .setSound(null)
                 .setCategory(NotificationCompat.CATEGORY_ALARM)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)

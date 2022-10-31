@@ -18,6 +18,7 @@ public class AlarmRecyclerViewAdapter extends RecyclerView.Adapter<AlarmViewHold
     private List<Alarm> alarms;
     private OnToggleAlarmListener listener;
     private ItemAlarmBinding itemAlarmBinding;
+
     public AlarmRecyclerViewAdapter(OnToggleAlarmListener listener) {
         this.alarms = new ArrayList<Alarm>();
         this.listener = listener;
@@ -26,7 +27,7 @@ public class AlarmRecyclerViewAdapter extends RecyclerView.Adapter<AlarmViewHold
     @NonNull
     @Override
     public AlarmViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        itemAlarmBinding=ItemAlarmBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
+        itemAlarmBinding = ItemAlarmBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new AlarmViewHolder(itemAlarmBinding);
     }
 

@@ -1,5 +1,8 @@
 package com.project.siso.home.villagehall;
 
+import static com.project.siso.home.DetailSignUpActivity.RESULT_OK_SELECTED_VH;
+import static com.project.siso.home.DetailSignUpActivity.selectedVillageHall;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -68,6 +71,10 @@ public class VillageHallPopUpActivity extends AppCompatActivity {
     }
 
     private void setTeamList(String villageHallName) {
+        items.clear();
+        adapter = new VillageHallAdapter(this, items);
+        binding.recycler.setAdapter(adapter);
+
         GetHttpClient httpclient = new GetHttpClient("restapi/villagehall/" + villageHallName);
         Thread th = new Thread(httpclient);
         th.start();
@@ -97,8 +104,8 @@ public class VillageHallPopUpActivity extends AppCompatActivity {
 
     public void mOnClose(View v) {
         Intent intent = new Intent();
-        intent.putExtra("result", "Close Popup");
-        setResult(RESULT_OK, intent);
+        intent.putExtra("villageHallName", selectedVillageHall.getHallName());
+        setResult(RESULT_OK_SELECTED_VH, intent);
 
         finish();
     }
@@ -109,10 +116,5 @@ public class VillageHallPopUpActivity extends AppCompatActivity {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        return;
     }
 }

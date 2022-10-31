@@ -64,10 +64,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-        <activity
-            android:name=".medicine.activities.RingActivity"
-            android:theme="@style/Theme.AppCompat" />
-        <activity android:name=".medicine.activities.AlarmMainActivity" />
+
+
+        <activity android:name=".medicine.activities.RingActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".medicine.activities.AlarmMainActivity"/>
+
+
         <activity
             android:name=".home.HomeActivity"
             android:exported="true"

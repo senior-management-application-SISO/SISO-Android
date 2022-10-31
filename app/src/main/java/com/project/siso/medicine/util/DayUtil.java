@@ -23,7 +23,7 @@ public final class DayUtil {
         throw new Exception("Could not locate day");
     }
 
-    public static String getDay(int hour,int minute){
+    public static String getDay(int hour, int minute) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, hour);

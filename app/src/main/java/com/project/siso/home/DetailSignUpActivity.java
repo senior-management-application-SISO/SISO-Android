@@ -1,5 +1,8 @@
 package com.project.siso.home;
 
+import android.widget.EditText;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -23,6 +26,10 @@ public class DetailSignUpActivity extends AppCompatActivity {
     public static Teams selectedTeam;
     public static VillageHall selectedVillageHall;
 
+    public static int RESULT_OK_SELECTED_ADMIN = 111;
+    public static int RESULT_OK_SELECTED_TEAM = 222;
+    public static int RESULT_OK_SELECTED_VH = 333;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,26 +37,77 @@ public class DetailSignUpActivity extends AppCompatActivity {
         binding = ActivityDetailSignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        clickListener();
     }
 
-    public void mOnPopupClick(View v) {
-        //데이터 담아서 팝업(액티비티) n호출
-        Intent intent = new Intent(this, TeamPopUpActivity.class);
-        intent.putExtra("data", "Popup");
-        startActivityForResult(intent, 1);
+    public void clickListener() {
+        binding.signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (selectedAdmin == null) {
+                    Toast.makeText(getApplicationContext(), "관리자를 설정해주세요.", Toast.LENGTH_SHORT).show();
+                } else if (selectedTeam == null) {
+                    Toast.makeText(getApplicationContext(), "소속을 설정해주세요.", Toast.LENGTH_SHORT).show();
+                } else if (selectedVillageHall == null) {
+                    Toast.makeText(getApplicationContext(), "마을회관을 설정해주세요.", Toast.LENGTH_SHORT).show();
+                } else {
+                    //회원가입
+                    finish();
+                }
+
+            }
+        });
     }
 
-    public void mOnPopupClick2(View v) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK_SELECTED_ADMIN) {
+                //데이터 받기
+                String result = data.getStringExtra("adminName");
+                binding.txtAdmin.setText(result);
+            }
+
+            if (resultCode == RESULT_OK_SELECTED_TEAM) {
+                String result = data.getStringExtra("teamName");
+                binding.txtTeam.setText(result);
+            }
+
+            if (resultCode == RESULT_OK_SELECTED_VH) {
+                String result = data.getStringExtra("villageHallName");
+                binding.txtCountyVillage.setText(result);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public void mOnPopupClick1(View v) {
         //데이터 담아서 팝업(액티비티) n호출
         Intent intent = new Intent(this, AdminPopUpActivity.class);
         intent.putExtra("data", "Popup");
         startActivityForResult(intent, 1);
     }
 
+    public void mOnPopupClick2(View v) {
+        if (selectedAdmin == null) {
+            Toast.makeText(getApplicationContext(), "관리자를 설정해주세요.", Toast.LENGTH_SHORT).show();
+        } else {
+            //데이터 담아서 팝업(액티비티) n호출
+            Intent intent = new Intent(this, TeamPopUpActivity.class);
+            intent.putExtra("data", "Popup");
+            startActivityForResult(intent, 1);
+        }
+    }
+
     public void mOnPopupClick3(View v) {
-        //데이터 담아서 팝업(액티비티) n호출
-        Intent intent = new Intent(this, VillageHallPopUpActivity.class);
-        intent.putExtra("data", "Popup");
-        startActivityForResult(intent, 1);
+        if (selectedAdmin == null) {
+            Toast.makeText(getApplicationContext(), "관리자를 설정해주세요.", Toast.LENGTH_SHORT).show();
+        } else {
+
+            //데이터 담아서 팝업(액티비티) n호출
+            Intent intent = new Intent(this, VillageHallPopUpActivity.class);
+            intent.putExtra("data", "Popup");
+            startActivityForResult(intent, 1);
+        }
     }
 }

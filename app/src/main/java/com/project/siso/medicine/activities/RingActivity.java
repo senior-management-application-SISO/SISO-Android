@@ -25,10 +25,11 @@ public class RingActivity extends AppCompatActivity {
     Alarm alarm;
     private AlarmListViewModel alarmsListViewModel;
     private ActivityRingBinding ringActivityViewBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ringActivityViewBinding= ActivityRingBinding.inflate(getLayoutInflater());
+        ringActivityViewBinding = ActivityRingBinding.inflate(getLayoutInflater());
         setContentView(ringActivityViewBinding.getRoot());
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
@@ -37,7 +38,7 @@ public class RingActivity extends AppCompatActivity {
         } else {
             getWindow().addFlags(
                     WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-                    | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
+                            | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
             );
         }
 /*        KeyguardManager keyguardManager=(KeyguardManager)getSystemService(Context.KEYGUARD_SERVICE) ;
@@ -46,9 +47,9 @@ public class RingActivity extends AppCompatActivity {
             }*/
 
         alarmsListViewModel = ViewModelProviders.of(this).get(AlarmListViewModel.class);
-        Bundle bundle=getIntent().getBundleExtra(getString(R.string.bundle_alarm_obj));
-        if (bundle!=null)
-            alarm =(Alarm)bundle.getSerializable(getString(R.string.arg_alarm_obj));
+        Bundle bundle = getIntent().getBundleExtra(getString(R.string.bundle_alarm_obj));
+        if (bundle != null)
+            alarm = (Alarm) bundle.getSerializable(getString(R.string.arg_alarm_obj));
 
         ringActivityViewBinding.activityRingDismiss.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +64,8 @@ public class RingActivity extends AppCompatActivity {
                 snoozeAlarm();
             }
         });
+
+        ringActivityViewBinding.textView.setText(alarm.getTitle());
 
         animateClock();
     }
@@ -83,13 +86,13 @@ public class RingActivity extends AppCompatActivity {
         } else {
             getWindow().clearFlags(
                     WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-                    | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
+                            | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
             );
         }
     }
 
-    private void dismissAlarm(){
-        if(alarm!=null) {
+    private void dismissAlarm() {
+        if (alarm != null) {
             alarm.setStarted(false);
             alarm.cancelAlarm(getBaseContext());
             alarmsListViewModel.update(alarm);
@@ -99,17 +102,16 @@ public class RingActivity extends AppCompatActivity {
         finish();
     }
 
-    private void snoozeAlarm(){
+    private void snoozeAlarm() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.add(Calendar.MINUTE, 5);
 
-        if(alarm!=null){
+        if (alarm != null) {
             alarm.setHour(calendar.get(Calendar.HOUR_OF_DAY));
             alarm.setMinute(calendar.get(Calendar.MINUTE));
-            alarm.setTitle("Snooze "+alarm.getTitle());
-        }
-        else {
+            alarm.setTitle("Snooze " + alarm.getTitle());
+        } else {
             alarm = new Alarm(
                     new Random().nextInt(Integer.MAX_VALUE),
                     calendar.get(Calendar.HOUR_OF_DAY),
