@@ -16,14 +16,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class VillageHallActivity extends AppCompatActivity {
+public class UsersVillageHallActivity extends AppCompatActivity {
 
     private ActivityVillageHallBinding binding;
     private String userListStringJson = null;
     private List<Users> users = new ArrayList<>();
 
     ArrayList<Users> items= new ArrayList<>(); //리사이클러 뷰가 보여줄 대량의 데이터를 가지고 있는 리시트객체
-    VillageHallAdapter adapter;   //리사이클러뷰가 보여줄 뷰을 만들어내는 객체참조변수
+    UsersVillageHallAdapter adapter;   //리사이클러뷰가 보여줄 뷰을 만들어내는 객체참조변수
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class VillageHallActivity extends AppCompatActivity {
         }
 
         //아답터생성 및 리사이클러뷰에 설정
-        adapter= new VillageHallAdapter(this, items);
+        adapter= new UsersVillageHallAdapter(this, items);
         binding.recycler.setAdapter(adapter);
 
     }

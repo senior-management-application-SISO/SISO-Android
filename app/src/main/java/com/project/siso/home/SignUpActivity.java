@@ -5,10 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.project.siso.R;
-import com.project.siso.databinding.ActivityHomeBinding;
 import com.project.siso.databinding.ActivitySignUpBinding;
-import com.project.siso.villagehall.VillageHallActivity;
 
 public class SignUpActivity extends AppCompatActivity {
     private ActivitySignUpBinding binding;
