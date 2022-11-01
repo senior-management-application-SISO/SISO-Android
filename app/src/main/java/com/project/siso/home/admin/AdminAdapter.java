@@ -1,6 +1,10 @@
 package com.project.siso.home.admin;
 
+import static com.project.siso.home.DetailSignUpActivity.RESULT_OK_SELECTED_ADMIN;
+
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +22,10 @@ import java.util.ArrayList;
 public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ViewHolder>{
 
     Context context;
-    ArrayList<Admin> admins;
+    ArrayList<AdminCountyOffice> admins;
 
     // 생성자에서 데이터 리스트 객체를 전달받음.
-    public AdminAdapter(Context context, ArrayList<Admin> list) {
+    public AdminAdapter(Context context, ArrayList<AdminCountyOffice> list) {
         this.context = context;
         this.admins = list;
     }
@@ -56,14 +60,22 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ViewHolder>{
             this.itemBinding = itemBinding;
         }
 
-        void bindItem(Admin item) {
+        void bindItem(AdminCountyOffice item) {
             itemBinding.name.setText(item.getAdminName());
             itemBinding.phoneNumber.setText(item.getAdminPhoneNumber());
+            itemBinding.county.setText(item.getOfficeName());
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     DetailSignUpActivity.selectedAdmin = item;
+
+                    Intent intent = new Intent();
+                    intent.putExtra("adminName", DetailSignUpActivity.selectedAdmin.getAdminName());
+                    ((Activity)context).setResult(RESULT_OK_SELECTED_ADMIN, intent);
+
+                    ((Activity)context).finish();
+
                 }
             });
         }

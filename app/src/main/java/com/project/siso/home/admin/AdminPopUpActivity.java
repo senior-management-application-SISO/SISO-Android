@@ -10,6 +10,7 @@ import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.project.siso.databinding.ActivityAdminPopUpBinding;
@@ -26,7 +27,7 @@ import java.util.List;
 public class AdminPopUpActivity extends AppCompatActivity {
     private ActivityAdminPopUpBinding binding;
 
-    ArrayList<Admin> items = new ArrayList<>(); //리사이클러 뷰가 보여줄 대량의 데이터를 가지고 있는 리시트객체
+    ArrayList<AdminCountyOffice> items = new ArrayList<>(); //리사이클러 뷰가 보여줄 대량의 데이터를 가지고 있는 리시트객체
     AdminAdapter adapter;   //리사이클러뷰가 보여줄 뷰을 만들어내는 객체참조변수
 
     @Override
@@ -76,11 +77,15 @@ public class AdminPopUpActivity extends AppCompatActivity {
         }
         Gson gson = new Gson();
 
-        Admin[] admins = gson.fromJson(result.toString(), Admin[].class);
-        List<Admin> list = Arrays.asList(admins);
+        AdminCountyOffice[] admins = gson.fromJson(result.toString(), AdminCountyOffice[].class);
+        List<AdminCountyOffice> list = Arrays.asList(admins);
 
-        for (Admin admin : list) {
-            items.add(new Admin(admin.getId(), admin.getAdminName(), admin.getAdminId(), admin.getAdminPhoneNumber(), admin.getCountyOfficeId()));
+        for (AdminCountyOffice admin : list) {
+            items.add(new AdminCountyOffice(admin.getId(), admin.getAdminName(), admin.getAdminId(), admin.getAdminPhoneNumber(), admin.getCountyOfficeId(), admin.getOfficeName()));
+        }
+
+        if(list.isEmpty()){
+            Toast.makeText(getApplicationContext(), "검색 결과가 없습니다.", Toast.LENGTH_SHORT).show();
         }
 
         adapter = new AdminAdapter(this, items);
@@ -102,9 +107,6 @@ public class AdminPopUpActivity extends AppCompatActivity {
 
 
     public void mOnClose(View v) {
-        Intent intent = new Intent();
-        intent.putExtra("adminName", DetailSignUpActivity.selectedAdmin.getAdminName());
-        setResult(RESULT_OK_SELECTED_ADMIN, intent);
 
         finish();
     }

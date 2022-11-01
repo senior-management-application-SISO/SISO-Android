@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.project.siso.databinding.ActivityDetailSignUpBinding;
 import com.project.siso.home.admin.Admin;
+import com.project.siso.home.admin.AdminCountyOffice;
 import com.project.siso.home.admin.AdminPopUpActivity;
 import com.project.siso.home.team.TeamPopUpActivity;
 import com.project.siso.home.team.Teams;
@@ -22,7 +23,7 @@ public class DetailSignUpActivity extends AppCompatActivity {
     private ActivityDetailSignUpBinding binding;
 
     //최종 입력한 정보
-    public static Admin selectedAdmin;
+    public static AdminCountyOffice selectedAdmin;
     public static Teams selectedTeam;
     public static VillageHall selectedVillageHall;
 

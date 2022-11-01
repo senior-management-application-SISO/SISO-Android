@@ -1,6 +1,11 @@
 package com.project.siso.home.team;
 
+import static com.project.siso.home.DetailSignUpActivity.RESULT_OK_SELECTED_TEAM;
+import static com.project.siso.home.DetailSignUpActivity.selectedTeam;
+
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +67,12 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     DetailSignUpActivity.selectedTeam = item;
+
+                    Intent intent = new Intent();
+                    intent.putExtra("teamName", selectedTeam.getTeamName());
+                    ((Activity)context).setResult(RESULT_OK_SELECTED_TEAM, intent);
+
+                    ((Activity)context).finish();
                 }
             });
         }

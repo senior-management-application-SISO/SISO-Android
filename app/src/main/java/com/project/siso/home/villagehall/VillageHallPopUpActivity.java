@@ -12,6 +12,7 @@ import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.project.siso.databinding.ActivityTeamPopUpBinding;
@@ -124,14 +125,15 @@ public class VillageHallPopUpActivity extends AppCompatActivity {
             items.add(new VillageHall(villageHall.getId(), villageHall.getHallName(), villageHall.getLat(), villageHall.getLon(), villageHall.getAddress(), villageHall.getAdminId()));
         }
 
+        if(list.isEmpty()){
+            Toast.makeText(getApplicationContext(), "검색 결과가 없습니다.", Toast.LENGTH_SHORT).show();
+        }
+
         adapter = new VillageHallAdapter(this, items);
         binding.recycler.setAdapter(adapter);
     }
 
     public void mOnClose(View v) {
-        Intent intent = new Intent();
-        intent.putExtra("villageHallName", selectedVillageHall.getHallName());
-        setResult(RESULT_OK_SELECTED_VH, intent);
 
         finish();
     }

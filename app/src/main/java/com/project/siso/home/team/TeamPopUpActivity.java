@@ -11,6 +11,7 @@ import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.project.siso.databinding.ActivityTeamPopUpBinding;
@@ -89,6 +90,10 @@ public class TeamPopUpActivity extends AppCompatActivity {
             items.add(new Teams(team.getId(),team.getTeamName(), team.getTeamAddress(), team.getAdminId()));
         }
 
+        if(list.isEmpty()){
+            Toast.makeText(getApplicationContext(), "검색 결과가 없습니다.", Toast.LENGTH_SHORT).show();
+        }
+
         adapter = new TeamAdapter(this, items);
         binding.recycler.setAdapter(adapter);
     }
@@ -126,9 +131,6 @@ public class TeamPopUpActivity extends AppCompatActivity {
     }
 
     public void mOnClose(View v) {
-        Intent intent = new Intent();
-        intent.putExtra("teamName", selectedTeam.getTeamName());
-        setResult(RESULT_OK_SELECTED_TEAM, intent);
 
         finish();
     }

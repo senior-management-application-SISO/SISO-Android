@@ -91,7 +91,7 @@
                 android:background="@drawable/round"
                 android:fontFamily="@font/suitmedium"
                 android:onClick="mOnClose"
-                android:text="확인"
+                android:text="취소"
                 android:textColor="@color/white"
                 android:textSize="15dp" />
 

@@ -1,6 +1,11 @@
 package com.project.siso.home.villagehall;
 
+import static com.project.siso.home.DetailSignUpActivity.RESULT_OK_SELECTED_VH;
+import static com.project.siso.home.DetailSignUpActivity.selectedVillageHall;
+
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,6 +70,10 @@ public class VillageHallAdapter extends RecyclerView.Adapter<VillageHallAdapter.
                 @Override
                 public void onClick(View v) {
                     DetailSignUpActivity.selectedVillageHall = item;
+                    Intent intent = new Intent();
+                    intent.putExtra("villageHallName", selectedVillageHall.getHallName());
+                    ((Activity)context).setResult(RESULT_OK_SELECTED_VH, intent);
+                    ((Activity)context).finish();
                 }
             });
         }
