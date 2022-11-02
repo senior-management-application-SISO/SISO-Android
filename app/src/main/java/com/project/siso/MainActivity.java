@@ -1,5 +1,7 @@
 package com.project.siso;
 
+import static com.project.siso.home.HomeActivity.userInfo;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,6 +10,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +25,8 @@ import com.project.siso.databinding.ActivityMainBinding;
 import com.project.siso.mealfriend.MealFriendActivity;
 import com.project.siso.medicine.activities.AlarmMainActivity;
 import com.project.siso.qr.QrCodeScanActivity;
+import com.project.siso.setting.SettingActivity;
+import com.project.siso.setting.UserSettingActivity;
 import com.project.siso.villagehall.UsersVillageHallActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
     private NavigationView nav;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         nav = findViewById(R.id.navigation);
+
+        View nav_header_view = nav.inflateHeaderView(R.layout.header);
+
+        textView = (TextView) nav_header_view.findViewById(R.id.title_name);
+
+        textView.setText(userInfo.getUserName() + "님");
 
         //액션바 변경하기(들어갈 수 있는 타입 : Toolbar type
         setSupportActionBar(toolbar);
@@ -82,7 +94,14 @@ public class MainActivity extends AppCompatActivity {
                     editor.remove("pw");
                     editor.apply();
 
+                    userInfo = null;
+
                     finish();
+                }
+
+                if (id == R.id.setting) {
+                    Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
+                    startActivity(intent);
                 }
 
                 return false;

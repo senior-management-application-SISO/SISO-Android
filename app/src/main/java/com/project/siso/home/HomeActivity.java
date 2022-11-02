@@ -25,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
     private ActivityHomeBinding binding;
     private Users user;
 
+    //유저 정보
     public static Users userInfo;
 
     private long backKeyPressedTime = 0;
