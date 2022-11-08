@@ -114,6 +114,7 @@ public class HomeActivity extends AppCompatActivity {
                 autoLogin.putString("id", user.getUserId());
                 autoLogin.putString("pw", user.getPassword());
                 autoLogin.putLong("villageHallId", userInfo.getVillageHallId());
+                autoLogin.putLong("teamId", userInfo.getTeamId());
 
                 autoLogin.apply();
 

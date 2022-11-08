@@ -1,50 +1,68 @@
 package com.project.siso.mealfriend;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-public class MealFriend {
+public class MealFriends {
+
+    private Long id;
     private Integer memNumber;
-    private LocalTime time;
+    private Integer currentNumber;
+    private String time;
     private String address;
     private String name;
     private String phoneNumber;
-    private String members;
     private String memo;
     private Boolean state;
+    private Long teamId;
+    private Long usersId;
 
-    public MealFriend() {
+
+    public MealFriends() {
     }
 
-    public MealFriend(Integer memNumber, String address, String name) {
+    public MealFriends(Integer memNumber, String address, String name) {
         this.memNumber = memNumber;
         this.address = address;
         this.name = name;
     }
 
-    public MealFriend(Integer memNumber, LocalTime time, String address, String name, String phoneNumber, String members, String memo, Boolean state) {
+    public MealFriends(Long id, Integer memNumber, Integer currentNumber, String time, String address, String name, String phoneNumber, String memo, Boolean state, Long teamId,Long usersId) {
+        this.id = id;
         this.memNumber = memNumber;
+        this.currentNumber = currentNumber;
         this.time = time;
         this.address = address;
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.members = members;
         this.memo = memo;
         this.state = state;
+        this.teamId = teamId;
+        this.usersId = usersId;
     }
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public Integer getMemNumber() {
         return memNumber;
     }
-
     public void setMemNumber(Integer memNumber) {
         this.memNumber = memNumber;
     }
 
-    public LocalTime getTime() {
+    public Integer getCurrentNumber() {
+        return currentNumber;
+    }
+    public void setCurrentNumber(Integer memNumber) {
+        this.memNumber = memNumber;
+    }
+
+    public String getTime() {
         return time;
     }
 
-    public void setTime(LocalTime time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
@@ -72,14 +90,6 @@ public class MealFriend {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getMembers() {
-        return members;
-    }
-
-    public void setMembers(String members) {
-        this.members = members;
-    }
-
     public String getMemo() {
         return memo;
     }
@@ -95,4 +105,20 @@ public class MealFriend {
     public void setState(Boolean state) {
         this.state = state;
     }
+
+    public Long getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(Long teamId) {
+        this.teamId = teamId;
+    }
+
+    public Long getUsersId() {
+        return usersId;
+    }
+    public void setUsersId(Long usersId) {
+        this.usersId = usersId;
+    }
+
 }
