@@ -80,7 +80,7 @@ public class VillageHallPopUpActivity extends AppCompatActivity {
         while (result == null) {
             result = httpclient.getResult();
             long end = System.currentTimeMillis();
-            if (end - start > 2000) {
+            if (end - start > 3000) {
                 return;
             }
         }
@@ -112,7 +112,7 @@ public class VillageHallPopUpActivity extends AppCompatActivity {
         while (result == null) {
             result = httpclient.getResult();
             long end = System.currentTimeMillis();
-            if (end - start > 2000) {
+            if (end - start > 3000) {
                 return;
             }
         }

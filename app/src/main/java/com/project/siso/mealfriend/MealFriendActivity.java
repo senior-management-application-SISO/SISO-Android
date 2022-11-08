@@ -12,6 +12,7 @@ import com.project.siso.databinding.ActivityMealFriendBinding;
 import com.project.siso.httpserver.GetHttpClient;
 import org.json.JSONException;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -62,19 +63,18 @@ public class MealFriendActivity extends AppCompatActivity {
         while (result == null) {
             result = httpClient.getResult();
             long end = System.currentTimeMillis();
-            if (end - start > 2000) {
+            if (end - start > 3000) {
                 return;
             }
         }
 
         Gson gson = new Gson();
 
-        MealFriends[] mealFriends = gson.fromJson(result.toString(), MealFriends[].class);
+        MealFriends[] mealFriends = gson.fromJson(result, MealFriends[].class);
         List<MealFriends> list = Arrays.asList(mealFriends);
 
 
         System.out.println("mealFriedns = " + mealFriends);
-
 
         for (MealFriends mealFriend : list) {
             items.add(new MealFriends(mealFriend.getId(), mealFriend.getMemNumber(), mealFriend.getCurrentNumber(), mealFriend.getTime(), mealFriend.getAddress(), mealFriend.getName(), mealFriend.getPhoneNumber(),  mealFriend.getMemo(), mealFriend.getState(), mealFriend.getTeamId(), mealFriend.getUsersId()));

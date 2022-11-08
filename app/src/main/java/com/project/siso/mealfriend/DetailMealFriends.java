@@ -1,33 +1,24 @@
 package com.project.siso.mealfriend;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-
-public class MealFriends {
+public class DetailMealFriends {
 
     private Long id;
     private Integer memNumber;
     private Integer currentNumber;
+
     private String time;
     private String address;
     private String name;
     private String phoneNumber;
     private String memo;
     private Boolean state;
-    private Long teamId;
-    private Long usersId;
 
+    private String userName;
 
-    public MealFriends() {
+    public DetailMealFriends() {
     }
 
-    public MealFriends(Integer memNumber, String address, String name) {
-        this.memNumber = memNumber;
-        this.address = address;
-        this.name = name;
-    }
-
-    public MealFriends(Long id, Integer memNumber, Integer currentNumber, String time, String address, String name, String phoneNumber, String memo, Boolean state, Long teamId, Long usersId) {
+    public DetailMealFriends(Long id, Integer memNumber, Integer currentNumber, String time, String address, String name, String phoneNumber, String memo, Boolean state, String userName) {
         this.id = id;
         this.memNumber = memNumber;
         this.currentNumber = currentNumber;
@@ -37,8 +28,7 @@ public class MealFriends {
         this.phoneNumber = phoneNumber;
         this.memo = memo;
         this.state = state;
-        this.teamId = teamId;
-        this.usersId = usersId;
+        this.userName = userName;
     }
 
     public Long getId() {
@@ -61,8 +51,8 @@ public class MealFriends {
         return currentNumber;
     }
 
-    public void setCurrentNumber(Integer memNumber) {
-        this.memNumber = memNumber;
+    public void setCurrentNumber(Integer currentNumber) {
+        this.currentNumber = currentNumber;
     }
 
     public String getTime() {
@@ -113,20 +103,11 @@ public class MealFriends {
         this.state = state;
     }
 
-    public Long getTeamId() {
-        return teamId;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setTeamId(Long teamId) {
-        this.teamId = teamId;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
-
-    public Long getUsersId() {
-        return usersId;
-    }
-
-    public void setUsersId(Long usersId) {
-        this.usersId = usersId;
-    }
-
 }

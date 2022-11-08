@@ -103,7 +103,7 @@ public class SignUpActivity extends AppCompatActivity {
             while (result == null) {
                 result = postHttpClient.getResult();
                 long end = System.currentTimeMillis();
-                if (end - start > 2000) {
+                if (end - start > 3000) {
                     Toast.makeText(getApplicationContext(), "서버 연결을 확인해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -123,7 +123,9 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void saveUserLocation(String userId){
             try {
-                RequestBody formBody = new FormBody.Builder().build();
+                RequestBody formBody = new FormBody.Builder()
+                        .add("lat", String.valueOf(1))
+                        .add("lon", String.valueOf(1)).build();
 
                 String request = "restapi/userslocation/save?userId=" + userId;
 
@@ -138,7 +140,7 @@ public class SignUpActivity extends AppCompatActivity {
                 while (result == null) {
                     result = postHttpClient.getResult();
                     long end = System.currentTimeMillis();
-                    if (end - start > 2000) {
+                    if (end - start > 3000) {
                         Toast.makeText(getApplicationContext(), "서버 연결을 확인해주세요.", Toast.LENGTH_SHORT).show();
                         return;
                     }

@@ -136,8 +136,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawers();
-        } else {
-            super.onBackPressed();
+            return;
         }
 
         if (System.currentTimeMillis() > backKeyPressedTime + 2000) {

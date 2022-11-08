@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.siso.databinding.ItemMealFriendBinding;
 
+import java.text.DateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 
 import static com.project.siso.mealfriend.MealFriendActivity.selectedMealFriends;
@@ -55,18 +60,28 @@ public class MealFriendAdapter extends RecyclerView.Adapter<MealFriendAdapter.Vi
 //            itemBinding.iv.setImageResource(item.imgResId);
             itemBinding.name.setText(item.getName());
             itemBinding.address.setText(item.getAddress());
-            itemBinding.personnel.setText(Integer.toString(item.getMemNumber()));
+            itemBinding.personnel.setText(item.getCurrentNumber() + "/" + item.getMemNumber());
+
+            StringBuffer sb = new StringBuffer();
+            sb.append(item.getTime());
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            LocalDateTime dateTime = LocalDateTime.parse(sb.replace(10, 11, " "), formatter);
+            itemBinding.date.setText(String.valueOf(dateTime.getYear() + "년 " + dateTime.getMonthValue() + "월 " + dateTime.getDayOfMonth() + "일 " + dateTime.getDayOfWeek() + " " + dateTime.getHour() + "시 " + dateTime.getMinute() + "분"));
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    MealFriendActivity.selectedMealFriends = item;
-                    Intent intent = new Intent(context, MealFriendPopUpActivity.class);
-                    intent.putExtra("mealFriend", selectedMealFriends.getClass());
+                    if (item.getCurrentNumber() >= item.getMemNumber()) {
+                        Toast.makeText(context, "정원이 다 찼습니다.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Intent intent = new Intent(context, MealFriendPopUpActivity.class);
+                        intent.putExtra("mealFriend", String.valueOf(item.getId()));
 
-                    context.startActivity(intent);
+                        context.startActivity(intent);
 //                    ((Activity)context).setResult(RESULT_OK, intent);
 //                    ((Activity)context).finish();
+                    }
                 }
             });
 
