@@ -31,12 +31,12 @@ public class MealFriendActivity extends AppCompatActivity {
         super.onResume();
 
         //임이의 대량의 데이터 추가
-        items.add(new MealFriend(3, "asdads", "newyork"));
-        items.add(new MealFriend(4, "sde", "fds"));
-
-        //아답터생성 및 리사이클러뷰에 설정
-        adapter = new MealFriendAdapter(this, items);
-        binding.mealFriendList.setAdapter(adapter);
+//        items.add(new MealFriend(3, "asdads", "newyork"));
+//        items.add(new MealFriend(4, "sde", "fds"));
+//
+//        //아답터생성 및 리사이클러뷰에 설정
+//        adapter = new MealFriendAdapter(this, items);
+//        binding.mealFriendList.setAdapter(adapter);
 
         //*추가** 다른 방법의 바인딩클래스 사용 아답터 예제소개 *****
         //MyAdapter2 adapter2= new MyAdapter2(this, items);
