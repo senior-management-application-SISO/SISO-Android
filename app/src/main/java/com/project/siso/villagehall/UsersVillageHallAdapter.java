@@ -54,7 +54,7 @@ public class UsersVillageHallAdapter extends RecyclerView.Adapter<UsersVillageHa
 
         void bindItem(Users item) {
             itemBinding.name.setText(item.getUserName());
-            itemBinding.address.setText(item.getPhoneNumber());
+            itemBinding.phoneNumber.setText(item.getPhoneNumber());
         }
     }
 

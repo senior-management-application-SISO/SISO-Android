@@ -20,14 +20,27 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="식사 친구 찾기"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:paddingBottom="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="식사 친구: 0개"
+            android:textSize="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_select"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mealFriendList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@+id/tv_select" />
+            app:layout_constraintTop_toBottomOf="@+id/total" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addMealFriend"

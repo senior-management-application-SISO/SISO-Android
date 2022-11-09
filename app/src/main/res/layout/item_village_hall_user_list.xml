@@ -7,37 +7,58 @@
     android:orientation="vertical"
     tools:context=".villagehall.UsersVillageHallActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_shadow"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/round_shadow"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:orientation="vertical"
-            >
+            android:layout_margin="3dp">
 
-                <TextView
-                    android:id="@+id/name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="1dp"
-                    android:text="성함"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:textSize="15dp" />
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/ic_user" />
 
-                <TextView
-                    android:id="@+id/address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="1dp"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:text="주소"
-                    android:textSize="15dp" />
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/suitmedium"
+                android:padding="1dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="성함"
+                android:textSize="18dp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp">
 
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/ic_phone" />
 
-
+            <TextView
+                android:id="@+id/phoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/suitmedium"
+                android:padding="1dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="번호"
+                android:textSize="18dp" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

@@ -3,55 +3,105 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/round_shadow"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
         android:orientation="vertical"
-        >
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="1dp"
-            android:text="성함"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:textSize="15dp" />
+            android:layout_marginTop="5dp">
 
-        <TextView
-            android:id="@+id/address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="1dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:text="주소"
-            android:textSize="15dp" />
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_user" />
 
-        <TextView
-            android:id="@+id/personnel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="1dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:text="인원 (1/4)"
-            android:textSize="15dp" />
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/suitmedium"
+                android:padding="1dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="성함"
+                android:textSize="18dp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="1dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:text="날짜"
-            android:textSize="15dp" />
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_home" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/suitmedium"
+                android:padding="1dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="주소"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_users" />
+
+            <TextView
+                android:id="@+id/personnel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/suitmedium"
+                android:padding="1dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="인원 (1/4)"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_calendar" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/suitmedium"
+                android:padding="1dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="날짜"
+                android:textSize="18dp" />
+        </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>
