@@ -24,14 +24,35 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:layout_marginBottom="60dp"
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/attendanceButton"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:background="@drawable/round_shadow">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/round"
+                android:gravity="center">
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/ic_check"
+                    android:backgroundTint="@color/white" />
+
+                <TextView
+                    android:id="@+id/attendanceText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:fontFamily="@font/suitmedium"
+                    android:gravity="center"
+                    android:text="출석체크"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -142,6 +163,29 @@
                         android:text="마을 회관 현황"
                         android:textSize="18dp" />
                 </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/suitmedium"
+                android:paddingLeft="10dp"
+                android:text="- 마을 인원 현황"
+                android:textSize="15dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/round_shadow"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/friendListRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
             </LinearLayout>
         </LinearLayout>
     </GridLayout>
