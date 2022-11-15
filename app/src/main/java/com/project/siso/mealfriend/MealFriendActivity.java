@@ -3,6 +3,7 @@ package com.project.siso.mealfriend;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import com.google.gson.GsonBuilder;
 import com.project.siso.databinding.ActivityMealFriendBinding;
 import com.project.siso.home.HomeActivity;
 import com.project.siso.httpserver.GetHttpClient;
+
 import org.json.JSONException;
 
 import java.text.DateFormat;
@@ -75,12 +77,14 @@ public class MealFriendActivity extends AppCompatActivity {
         System.out.println("mealFriedns = " + mealFriends);
 
         for (MealFriends mealFriend : list) {
-            items.add(new MealFriends(mealFriend.getId(), mealFriend.getMemNumber(), mealFriend.getCurrentNumber(), mealFriend.getTime(), mealFriend.getAddress(), mealFriend.getName(), mealFriend.getPhoneNumber(),  mealFriend.getMemo(), mealFriend.getState(), mealFriend.getTeamId(), mealFriend.getUsersId()));
+            items.add(new MealFriends(mealFriend.getId(), mealFriend.getMemNumber(), mealFriend.getCurrentNumber(), mealFriend.getTime(), mealFriend.getAddress(), mealFriend.getName(), mealFriend.getPhoneNumber(), mealFriend.getMemo(), mealFriend.getState(), mealFriend.getTeamId(), mealFriend.getUsersId()));
         }
 
         //아답터생성 및 리사이클러뷰에 설정
         adapter = new MealFriendAdapter(this, items);
         binding.mealFriendList.setAdapter(adapter);
+
+        binding.total.setText("식사 친구: " + items.size() + "개");
 
         //*추가** 다른 방법의 바인딩클래스 사용 아답터 예제소개 *****
         //MyAdapter2 adapter2= new MyAdapter2(this, items);

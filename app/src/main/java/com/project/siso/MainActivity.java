@@ -9,12 +9,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,8 +32,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
 import com.google.gson.Gson;
+import com.project.siso.adapter.FriendListAdapter;
 import com.project.siso.databinding.ActivityMainBinding;
+import com.project.siso.domain.UserInfoState;
 import com.project.siso.domain.Users;
+import com.project.siso.home.admin.AdminAdapter;
+import com.project.siso.home.admin.AdminCountyOffice;
+import com.project.siso.httpserver.GetHttpClient;
 import com.project.siso.httpserver.PostHttpClient;
 import com.project.siso.mealfriend.MealFriendActivity;
 import com.project.siso.medicine.activities.AlarmMainActivity;
@@ -40,7 +47,14 @@ import com.project.siso.setting.SettingActivity;
 import com.project.siso.utilities.GpsTracker;
 import com.project.siso.villagehall.UsersVillageHallActivity;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
@@ -54,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private ActivityMainBinding binding;
+
+    List<UserInfoState> userInfoStateList;
+    FriendListAdapter friendListAdapter;
 
     private long backKeyPressedTime = 0;
     private Toast toast;
@@ -70,6 +87,18 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        init();
+
+
+        setUserLocation();
+
+        setFriendList();
+
+        setListeners();
+    }
+
+    private void init() {
+
         ivMenu = findViewById(R.id.iv_menu);
         drawerLayout = findViewById(R.id.drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -81,12 +110,12 @@ public class MainActivity extends AppCompatActivity {
 
         textView.setText(userInfo.getUserName() + "님");
 
+
         //액션바 변경하기(들어갈 수 있는 타입 : Toolbar type
         setSupportActionBar(toolbar);
 
-        setUserLocation();
-
-        setListeners();
+        userInfoStateList = new ArrayList<>();
+        friendListAdapter = new FriendListAdapter(this, userInfoStateList);
     }
 
     private void setListeners() {
@@ -130,6 +159,84 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        binding.attendanceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                attendance();
+            }
+        });
+    }
+
+    private void attendance() {
+        GetHttpClient httpclient = new GetHttpClient("restapi/userstate/" + userInfo.getId());
+        Thread th = new Thread(httpclient);
+        th.start();
+        String result = null;
+
+        long start = System.currentTimeMillis();
+
+        while (result == null) {
+            result = httpclient.getResult();
+            long end = System.currentTimeMillis();
+            if (end - start > 3000) {
+                return;
+            }
+        }
+        if (result.equals("ok")) {
+            binding.attendanceText.setText("출석체크 완료");
+            binding.attendanceButton.setEnabled(false);
+            binding.attendanceButton.setBackgroundResource(R.drawable.round_enabled);
+        }
+    }
+
+    private void setFriendList() {
+        userInfoStateList.clear();
+        friendListAdapter = new FriendListAdapter(this, userInfoStateList);
+        binding.friendListRecyclerView.setAdapter(friendListAdapter);
+
+        GetHttpClient httpclient = new GetHttpClient("restapi/userstate/detail/byteamid/" + userInfo.getTeamId());
+        Thread th = new Thread(httpclient);
+        th.start();
+        String result = null;
+
+        long start = System.currentTimeMillis();
+
+        while (result == null) {
+            result = httpclient.getResult();
+            long end = System.currentTimeMillis();
+            if (end - start > 3000) {
+                return;
+            }
+        }
+        Gson gson = new Gson();
+
+        UserInfoState[] admins = gson.fromJson(result.toString(), UserInfoState[].class);
+        userInfoStateList = Arrays.asList(admins);
+
+        List<UserInfoState> list = new ArrayList<>();
+
+        for (UserInfoState userInfoState : userInfoStateList) {
+            if (!userInfoState.getId().equals(userInfo.getId())) {
+                list.add(userInfoState);
+            } else {
+                StringBuffer sb = new StringBuffer();
+                sb.append(userInfoState.getDate());
+
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                LocalDateTime dateTime = LocalDateTime.parse(sb.replace(10, 11, " "), formatter);
+                LocalDate today = LocalDate.now();
+
+                if (dateTime.getYear() == today.getYear() && dateTime.getMonthValue() == today.getMonthValue() && dateTime.getDayOfMonth() == today.getDayOfMonth()) {
+                    binding.attendanceText.setText("출석체크 완료");
+                    binding.attendanceButton.setEnabled(false);
+                    binding.attendanceButton.setBackgroundResource(R.drawable.round_enabled);
+                }
+            }
+        }
+
+        friendListAdapter = new FriendListAdapter(this, list);
+        binding.friendListRecyclerView.setAdapter(friendListAdapter);
     }
 
     @Override
@@ -171,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
         postData(latitude, longitude);
     }
 
-    private void postData(double latitude ,double longitude) {
+    private void postData(double latitude, double longitude) {
         try {
             RequestBody formBody = new FormBody.Builder()
                     .add("lat", String.valueOf(latitude))
