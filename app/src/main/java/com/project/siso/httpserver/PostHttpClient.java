@@ -39,6 +39,7 @@ public class PostHttpClient implements Runnable {
             //출력
             result = response.body().string();
 
+            String a = "s";
         } catch (Exception e) {
             e.printStackTrace();
         }
