@@ -1,6 +1,7 @@
 package com.project.siso.mealfriend;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.project.siso.databinding.ActivityMealFriendBinding;
+import com.project.siso.home.HomeActivity;
 import com.project.siso.httpserver.GetHttpClient;
 
 import org.json.JSONException;
@@ -34,25 +36,21 @@ public class MealFriendActivity extends AppCompatActivity {
         binding = ActivityMealFriendBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        setListener();
     }
+
+    private void setListener() {
+        binding.addMealFriend.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MealFriendRegisterActivity.class)));
+    }
+
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        //임이의 대량의 데이터 추가
-//        //임이의 대량의 데이터 추가
-//        items.add(new MealFriend(3, "asdads", "newyork"));
-//        items.add(new MealFriend(4, "sde", "fds"));
-//
-//        //아답터생성 및 리사이클러뷰에 설정
-//        adapter = new MealFriendAdapter(this, items);
-//        binding.mealFriendList.setAdapter(adapter);
-
         items.clear();
 
-        SharedPreferences sharedPreferences = getSharedPreferences("sharedPreferences", Activity.MODE_PRIVATE);
-        Long teamId = sharedPreferences.getLong("teamId", 0L);
+        Long teamId = HomeActivity.userInfo.getTeamId();
 
         String request = "restapi/dining-friends/select/" + teamId;
         GetHttpClient httpClient = new GetHttpClient(request);

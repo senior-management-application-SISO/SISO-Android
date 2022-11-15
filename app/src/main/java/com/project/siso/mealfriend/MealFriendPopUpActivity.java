@@ -1,15 +1,23 @@
 package com.project.siso.mealfriend;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.view.Window;
 
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
 import com.google.gson.Gson;
 import com.project.siso.databinding.ActivityMealFriendPopUpBinding;
+import com.project.siso.home.HomeActivity;
 import com.project.siso.httpserver.GetHttpClient;
+import com.project.siso.httpserver.PostHttpClient;
+import okhttp3.FormBody;
+import okhttp3.RequestBody;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -19,6 +27,8 @@ import java.util.List;
 public class MealFriendPopUpActivity extends AppCompatActivity {
 
     private ActivityMealFriendPopUpBinding binding;
+
+    private DetailMealFriends detailMealFriends;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,10 +89,55 @@ public class MealFriendPopUpActivity extends AppCompatActivity {
         }
         binding.members.setText(members);
         binding.memo.setText(mealFriend.get(0).getMemo());
+
+        detailMealFriends = mealFriend.get(0);
     }
 
 
     private void setClickListener() {
+        binding.mealFriendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                registerMealFriend();
+            }
+        });
+    }
 
+    private void registerMealFriend() {
+        try {
+            RequestBody formBody = new FormBody.Builder()
+                    .add("usersId", String.valueOf(HomeActivity.userInfo.getId()))
+                    .add("diningFriendsId", String.valueOf(detailMealFriends.getId()))
+                    .build();
+
+            String request = "restapi/dining-friends/save/dining-friends-users";
+
+            PostHttpClient postHttpClient = new PostHttpClient(request, formBody);
+
+            Thread th = new Thread(postHttpClient);
+            th.start();
+            String result = null;
+
+            long start = System.currentTimeMillis();
+
+            while (result == null) {
+                result = postHttpClient.getResult();
+                long end = System.currentTimeMillis();
+                if (end - start > 3000) {
+                    Toast.makeText(getApplicationContext(), "서버 연결을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+
+            if (result.equals("saved")) {
+                Toast.makeText(getApplicationContext(), "식사 신청되었습니다.", Toast.LENGTH_SHORT).show();
+                finish();
+            } else {
+                Toast.makeText(getApplicationContext(), "식사 신청을 실패했습니다.", Toast.LENGTH_SHORT).show();
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }
