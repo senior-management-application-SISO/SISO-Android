@@ -42,16 +42,6 @@
             android:layout_height="1dp"
             android:background="#E4E4E4" />
 
-        <TextView
-            android:id="@+id/adminSetting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="15dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="15dp"
-            android:paddingBottom="5dp"
-            android:text="관리자 정보"
-            android:textSize="25dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

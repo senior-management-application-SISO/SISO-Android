@@ -1,6 +1,7 @@
 //웹 소켓 통신
 package com.project.siso.httpserver;
 
+import com.project.siso.BuildConfig;
 import com.project.siso.domain.Users;
 
 import okhttp3.FormBody;
@@ -13,7 +14,7 @@ import okhttp3.ResponseBody;
 
 public class PostHttpClient implements Runnable {
 
-    String serverUri = "http://10.0.2.2:8080/";
+    String serverUri = BuildConfig.SERVER_IP;
 
     String msg;
 

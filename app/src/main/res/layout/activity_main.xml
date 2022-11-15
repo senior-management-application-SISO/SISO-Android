@@ -172,7 +172,7 @@
                 android:fontFamily="@font/suitmedium"
                 android:paddingLeft="10dp"
                 android:text="- 마을 인원 현황"
-                android:textSize="15dp" />
+                android:textSize="18dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

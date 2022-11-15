@@ -42,13 +42,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".setting.AdminSettingActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".setting.UserSettingActivity"
             android:exported="false">
             <meta-data

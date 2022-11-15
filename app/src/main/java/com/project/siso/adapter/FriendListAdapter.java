@@ -78,7 +78,7 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Vi
             } else if (LocalDateTime.now().minusDays(3).compareTo(dateTime) > 0) {
                 itemBinding.attendance.setTextColor(Color.parseColor("#FFFF8C00"));
             } else {
-                itemBinding.attendance.setTextColor(Color.parseColor("#FF35F300"));
+                itemBinding.attendance.setTextColor(Color.parseColor("#FF4CAF50"));
             }
 
         }

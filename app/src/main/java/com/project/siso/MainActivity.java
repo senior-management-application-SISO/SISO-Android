@@ -89,12 +89,11 @@ public class MainActivity extends AppCompatActivity {
 
         init();
 
-
         setUserLocation();
 
-        setFriendList();
-
         setListeners();
+
+        setFriendList();
     }
 
     private void init() {

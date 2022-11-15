@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.project.siso.MainActivity;
-import com.project.siso.databinding.ActivityAdminSettingBinding;
 import com.project.siso.databinding.ActivityUserSettingBinding;
 import com.project.siso.domain.Users;
 import com.project.siso.httpserver.PostHttpClient;
