@@ -1,5 +1,7 @@
 package com.project.siso.mealfriend;
 
+import static com.project.siso.home.HomeActivity.userDFId;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,11 +9,14 @@ import android.content.SharedPreferences;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.project.siso.databinding.ActivityMealFriendBinding;
 import com.project.siso.home.HomeActivity;
+import com.project.siso.home.team.TeamPopUpActivity;
 import com.project.siso.httpserver.GetHttpClient;
 
 import org.json.JSONException;
@@ -35,19 +40,25 @@ public class MealFriendActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMealFriendBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        setItems();
         setListener();
     }
 
     private void setListener() {
-        binding.addMealFriend.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MealFriendRegisterActivity.class)));
+        binding.addMealFriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (userDFId != -1L) {
+                    Toast.makeText(getApplicationContext(), "이미 식사 친구에 소속되어 있습니다.", Toast.LENGTH_SHORT).show();
+                    setItems();
+                } else {
+                    startActivity(new Intent(getApplicationContext(), MealFriendRegisterActivity.class));
+                }
+            }
+        });
     }
 
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
+    private void setItems() {
         items.clear();
 
         Long teamId = HomeActivity.userInfo.getTeamId();
@@ -72,9 +83,6 @@ public class MealFriendActivity extends AppCompatActivity {
 
         MealFriends[] mealFriends = gson.fromJson(result, MealFriends[].class);
         List<MealFriends> list = Arrays.asList(mealFriends);
-
-
-        System.out.println("mealFriedns = " + mealFriends);
 
         for (MealFriends mealFriend : list) {
             items.add(new MealFriends(mealFriend.getId(), mealFriend.getMemNumber(), mealFriend.getCurrentNumber(), mealFriend.getTime(), mealFriend.getAddress(), mealFriend.getName(), mealFriend.getPhoneNumber(), mealFriend.getMemo(), mealFriend.getState(), mealFriend.getTeamId(), mealFriend.getUsersId()));

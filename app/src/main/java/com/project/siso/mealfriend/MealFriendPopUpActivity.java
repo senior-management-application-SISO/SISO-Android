@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import com.project.siso.databinding.ActivityMealFriendPopUpBinding;
 import com.project.siso.home.HomeActivity;
 import com.project.siso.httpserver.GetHttpClient;
 import com.project.siso.httpserver.PostHttpClient;
+
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
 
@@ -107,6 +109,7 @@ public class MealFriendPopUpActivity extends AppCompatActivity {
         try {
             RequestBody formBody = new FormBody.Builder()
                     .add("usersId", String.valueOf(HomeActivity.userInfo.getId()))
+                    .add("userName", HomeActivity.userInfo.getUserName())
                     .add("diningFriendsId", String.valueOf(detailMealFriends.getId()))
                     .build();
 

@@ -1,5 +1,6 @@
 package com.project.siso;
 
+import static com.project.siso.home.HomeActivity.userDFId;
 import static com.project.siso.home.HomeActivity.userInfo;
 
 import android.Manifest;
@@ -36,11 +37,16 @@ import com.project.siso.adapter.FriendListAdapter;
 import com.project.siso.databinding.ActivityMainBinding;
 import com.project.siso.domain.UserInfoState;
 import com.project.siso.domain.Users;
+import com.project.siso.home.HomeActivity;
 import com.project.siso.home.admin.AdminAdapter;
 import com.project.siso.home.admin.AdminCountyOffice;
 import com.project.siso.httpserver.GetHttpClient;
 import com.project.siso.httpserver.PostHttpClient;
+import com.project.siso.mealfriend.ApplicantMealFriendActivity;
+import com.project.siso.mealfriend.DetailMealFriends;
+import com.project.siso.mealfriend.HostMealFriendActivity;
 import com.project.siso.mealfriend.MealFriendActivity;
+import com.project.siso.mealfriend.MealFriends;
 import com.project.siso.medicine.activities.AlarmMainActivity;
 import com.project.siso.qr.QrCodeScanActivity;
 import com.project.siso.setting.SettingActivity;
@@ -131,7 +137,26 @@ public class MainActivity extends AppCompatActivity {
         );
         binding.medicineButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), AlarmMainActivity.class)));
         binding.qrCheck.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), QrCodeScanActivity.class)));
-        binding.mealFriendButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MealFriendActivity.class)));
+        binding.mealFriendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                DetailMealFriends diningFriend = checkMyDiningFriend();
+
+                if (diningFriend == null) {
+                    intent = new Intent(getApplicationContext(), MealFriendActivity.class);
+                } else {
+                    userDFId = diningFriend.getId();
+
+                    if (diningFriend.getPhoneNumber().equals(HomeActivity.userInfo.getPhoneNumber())) {
+                        intent = new Intent(getApplicationContext(), HostMealFriendActivity.class);
+                    } else {
+                        intent = new Intent(getApplicationContext(), ApplicantMealFriendActivity.class);
+                    }
+                }
+                startActivity(intent);
+            }
+        });
 
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -146,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
                     editor.apply();
 
                     userInfo = null;
+                    userDFId = -1L;
 
                     finish();
                 }
@@ -437,6 +463,29 @@ public class MainActivity extends AppCompatActivity {
 
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
                 || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+    }
+
+    private DetailMealFriends checkMyDiningFriend() {
+
+        String request = "restapi/dining-friends/select/byuserid/" + HomeActivity.userInfo.getId();
+        GetHttpClient httpClient = new GetHttpClient(request);
+        Thread th = new Thread(httpClient);
+        th.start();
+        String result = null;
+
+        long start = System.currentTimeMillis();
+
+        while (result == null) {
+            result = httpClient.getResult();
+            long end = System.currentTimeMillis();
+            if (end - start > 3000) {
+                return null;
+            }
+        }
+
+        Gson gson = new Gson();
+
+        return gson.fromJson(result, DetailMealFriends.class);
     }
 
 }

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.project.siso.databinding.ItemMealFriendBinding;
+import com.project.siso.home.HomeActivity;
 
 import java.text.DateFormat;
 import java.time.LocalDateTime;
@@ -72,15 +73,19 @@ public class MealFriendAdapter extends RecyclerView.Adapter<MealFriendAdapter.Vi
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (item.getCurrentNumber() >= item.getMemNumber()) {
-                        Toast.makeText(context, "정원이 다 찼습니다.", Toast.LENGTH_SHORT).show();
+                    if (HomeActivity.userDFId != -1L) {
+                        Toast.makeText(context, "이미 식사 친구에 소속되어 있습니다.", Toast.LENGTH_SHORT).show();
                     } else {
-                        Intent intent = new Intent(context, MealFriendPopUpActivity.class);
-                        intent.putExtra("mealFriend", String.valueOf(item.getId()));
+                        if (item.getCurrentNumber() >= item.getMemNumber()) {
+                            Toast.makeText(context, "정원이 다 찼습니다.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Intent intent = new Intent(context, MealFriendPopUpActivity.class);
+                            intent.putExtra("mealFriend", String.valueOf(item.getId()));
 
-                        context.startActivity(intent);
+                            context.startActivity(intent);
 //                    ((Activity)context).setResult(RESULT_OK, intent);
 //                    ((Activity)context).finish();
+                        }
                     }
                 }
             });

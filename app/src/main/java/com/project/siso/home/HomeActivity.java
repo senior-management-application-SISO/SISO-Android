@@ -27,6 +27,7 @@ public class HomeActivity extends AppCompatActivity {
 
     //유저 정보
     public static Users userInfo;
+    public static Long userDFId;
 
     private long backKeyPressedTime = 0;
 
@@ -39,6 +40,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        userDFId = -1L;
 
         SharedPreferences sharedPreferences = getSharedPreferences("sharedPreferences", Activity.MODE_PRIVATE);
 
