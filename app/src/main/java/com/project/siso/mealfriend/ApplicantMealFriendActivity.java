@@ -50,11 +50,11 @@ public class ApplicantMealFriendActivity extends AppCompatActivity {
     private void out() {
         try {
             RequestBody formBody = new FormBody.Builder()
-                    .add("userId", String.valueOf(HomeActivity.userInfo.getId()))
+                    .add("usersId", String.valueOf(HomeActivity.userInfo.getId()))
                     .add("diningFriendsId", String.valueOf(HomeActivity.userDFId))
                     .build();
 
-            String request = "restapi/delete/dining-friends-users";
+            String request = "restapi/dining-friends/delete/dining-friends-users";
 
             PostHttpClient postHttpClient = new PostHttpClient(request, formBody);
 
@@ -73,7 +73,7 @@ public class ApplicantMealFriendActivity extends AppCompatActivity {
                 }
             }
 
-            if (result.equals("ok")) {
+            if (result.equals("deleted")) {
                 Toast.makeText(getApplicationContext(), "식사 친구에서 탈퇴하셨습니다.", Toast.LENGTH_SHORT).show();
                 HomeActivity.userDFId = -1L;
                 finish();
