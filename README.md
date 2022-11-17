@@ -109,7 +109,7 @@
 
 - 식사 친구 찾기
 
-![image](https://user-images.githubusercontent.com/90389323/202346087-3a788b70-5592-4b24-a72b-80e79e456126.png)
+![image](https://user-images.githubusercontent.com/90389323/202347208-79992cba-fea7-423a-b251-0478b152ac73.png)
 
 - 마을 회관 현황
 
