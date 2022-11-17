@@ -64,6 +64,16 @@
         - 복약알림 <br>
         - 식사 친구찾기 <br>
         - 마을회관 <br>
+        
+#### local.properties 설정
+
+---
+
+server.ip="http://localhost or aws ip:8080/" <br>
+
+추가 후 빌드
+
+---
  
 ## 🔥 기술 스택 🔥
 
