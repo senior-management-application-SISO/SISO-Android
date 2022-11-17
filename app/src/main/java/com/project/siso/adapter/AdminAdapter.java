@@ -1,4 +1,4 @@
-package com.project.siso.home.admin;
+package com.project.siso.adapter;
 
 import static com.project.siso.home.DetailSignUpActivity.RESULT_OK_SELECTED_ADMIN;
 
@@ -13,9 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.siso.databinding.ItemAdminBinding;
-import com.project.siso.databinding.ItemTeamBinding;
 import com.project.siso.home.DetailSignUpActivity;
-import com.project.siso.home.team.Teams;
+import com.project.siso.home.admin.AdminCountyOffice;
 
 import java.util.ArrayList;
 

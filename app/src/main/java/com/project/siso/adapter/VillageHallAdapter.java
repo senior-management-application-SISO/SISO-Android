@@ -1,4 +1,4 @@
-package com.project.siso.home.villagehall;
+package com.project.siso.adapter;
 
 import static com.project.siso.home.DetailSignUpActivity.RESULT_OK_SELECTED_VH;
 import static com.project.siso.home.DetailSignUpActivity.selectedVillageHall;
@@ -13,11 +13,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.project.siso.databinding.ItemTeamBinding;
 import com.project.siso.databinding.ItemVillageHallBinding;
 import com.project.siso.home.DetailSignUpActivity;
-import com.project.siso.home.team.TeamAdapter;
-import com.project.siso.home.team.Teams;
+import com.project.siso.home.villagehall.VillageHall;
 
 import java.util.ArrayList;
 

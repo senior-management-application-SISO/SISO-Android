@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="마을 회관 현황"
+            android:text="마을회관 현황"
             android:textSize="30dp" />
 
         <TextView

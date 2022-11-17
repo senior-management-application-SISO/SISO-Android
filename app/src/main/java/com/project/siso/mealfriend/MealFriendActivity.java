@@ -2,9 +2,7 @@ package com.project.siso.mealfriend;
 
 import static com.project.siso.home.HomeActivity.userDFId;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,15 +11,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.project.siso.adapter.MealFriendAdapter;
 import com.project.siso.databinding.ActivityMealFriendBinding;
 import com.project.siso.home.HomeActivity;
-import com.project.siso.home.team.TeamPopUpActivity;
 import com.project.siso.httpserver.GetHttpClient;
 
-import org.json.JSONException;
-
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

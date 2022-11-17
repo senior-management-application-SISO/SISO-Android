@@ -1,12 +1,9 @@
 package com.project.siso.home.villagehall;
 
-import static com.project.siso.home.DetailSignUpActivity.RESULT_OK_SELECTED_VH;
 import static com.project.siso.home.DetailSignUpActivity.selectedAdmin;
-import static com.project.siso.home.DetailSignUpActivity.selectedVillageHall;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
@@ -15,11 +12,8 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.project.siso.databinding.ActivityTeamPopUpBinding;
-import com.project.siso.databinding.ActivityVillageHallBinding;
+import com.project.siso.adapter.VillageHallAdapter;
 import com.project.siso.databinding.ActivityVillageHallPopUpBinding;
-import com.project.siso.home.team.TeamAdapter;
-import com.project.siso.home.team.Teams;
 import com.project.siso.httpserver.GetHttpClient;
 
 import java.util.ArrayList;

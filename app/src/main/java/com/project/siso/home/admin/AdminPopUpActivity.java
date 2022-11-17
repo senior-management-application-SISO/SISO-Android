@@ -1,10 +1,7 @@
 package com.project.siso.home.admin;
 
-import static com.project.siso.home.DetailSignUpActivity.RESULT_OK_SELECTED_ADMIN;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
@@ -13,11 +10,8 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.project.siso.adapter.AdminAdapter;
 import com.project.siso.databinding.ActivityAdminPopUpBinding;
-import com.project.siso.databinding.ActivityTeamPopUpBinding;
-import com.project.siso.home.DetailSignUpActivity;
-import com.project.siso.home.team.TeamAdapter;
-import com.project.siso.home.team.Teams;
 import com.project.siso.httpserver.GetHttpClient;
 
 import java.util.ArrayList;

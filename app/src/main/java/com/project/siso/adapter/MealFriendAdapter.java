@@ -1,4 +1,4 @@
-package com.project.siso.mealfriend;
+package com.project.siso.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,14 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.siso.databinding.ItemMealFriendBinding;
 import com.project.siso.home.HomeActivity;
+import com.project.siso.mealfriend.MealFriendPopUpActivity;
+import com.project.siso.mealfriend.MealFriends;
 
-import java.text.DateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.ArrayList;
-
-import static com.project.siso.mealfriend.MealFriendActivity.selectedMealFriends;
 
 public class MealFriendAdapter extends RecyclerView.Adapter<MealFriendAdapter.ViewHolder> {
     Context context;

@@ -2,16 +2,13 @@ package com.project.siso.mealfriend;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.project.siso.adapter.MealFriendUserListAdapter;
-import com.project.siso.databinding.ActivityApplicantMealFriendBinding;
 import com.project.siso.databinding.ActivityHostMealFriendBinding;
 import com.project.siso.home.HomeActivity;
-import com.project.siso.home.admin.AdminAdapter;
 import com.project.siso.httpserver.GetHttpClient;
 import com.project.siso.httpserver.PostHttpClient;
 

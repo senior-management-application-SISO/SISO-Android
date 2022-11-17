@@ -1,4 +1,4 @@
-package com.project.siso.villagehall;
+package com.project.siso.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.siso.databinding.ItemVillageHallUserListBinding;
+import com.project.siso.villagehall.Users;
 
 import java.util.ArrayList;
 

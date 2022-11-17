@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.gson.Gson;
+import com.project.siso.adapter.UsersVillageHallAdapter;
 import com.project.siso.databinding.ActivityVillageHallBinding;
 import com.project.siso.httpserver.GetHttpClient;
 
