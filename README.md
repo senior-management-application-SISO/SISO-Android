@@ -56,7 +56,7 @@
 - [📰 독거노인의 생활상 어려움](http://www.wbcb.co.kr/news/articleView.html?idxno=72892)
 
 #### 프로젝트 기간
-2022년 10월 6일 ~ ing
+2022년 10월 6일 ~ 2022년 11월 17
 
 #### 프로젝트 목표
 - 독거노인 케어 <br>
@@ -89,4 +89,59 @@
 
 </div>
 
-## 💻 실행 화면 💻
+## 💻 실행 화면(안드로이드) 💻
+
+- 회원가입
+
+![image](https://user-images.githubusercontent.com/90389323/202345221-b9533c3a-dde5-4e97-82dd-ab49a429f5f4.png)
+
+- 메인 UI
+
+![image](https://user-images.githubusercontent.com/90389323/202345280-1c96c95b-631e-4050-bb1e-2cf75a00647a.png)
+
+- 회원 정보 수정
+
+![image](https://user-images.githubusercontent.com/90389323/202345356-fd9b63ce-b68a-4e17-b4a1-e14ab79af336.png)
+
+- 복약 알림
+
+![image](https://user-images.githubusercontent.com/90389323/202345800-fb9c700f-c6d5-44b4-9849-d52aa3e8f2b8.png)
+
+- 식사 친구 찾기
+
+![image](https://user-images.githubusercontent.com/90389323/202346087-3a788b70-5592-4b24-a72b-80e79e456126.png)
+
+- 마을 회관 현황
+
+![image](https://user-images.githubusercontent.com/90389323/202346134-38868e65-493b-429d-81d9-6ec2ac942fc4.png)
+
+## 💻 실행 화면(스프링 웹) 💻
+
+- 관리자 회원가입
+
+![image](https://user-images.githubusercontent.com/90389323/202335245-13a10d85-8416-4b0a-910a-7915edabf4cf.png)
+
+- 멤버 관리
+
+![image](https://user-images.githubusercontent.com/90389323/202335447-e0017aeb-e9e6-4220-944e-11e86171052f.png)
+
+- 멤버 상세 정보
+
+![image](https://user-images.githubusercontent.com/90389323/202335536-f46e06de-0679-47f8-98f8-4a53fde7580f.png)
+
+- 관리하는 소속(마을) 목록
+
+![image](https://user-images.githubusercontent.com/90389323/202335653-4438c19d-ba4a-4597-b805-a661f15f6fea.png)
+
+- 소속(마을) 정보
+
+![image](https://user-images.githubusercontent.com/90389323/202335712-9042ebf5-227e-42cc-9480-28423a54db88.png)
+
+- 관리하는 마을회관 목록
+
+![image](https://user-images.githubusercontent.com/90389323/202335748-79d6576a-8355-4f72-a1cb-78abd0613724.png)
+
+- 마을회관 정보
+
+![image](https://user-images.githubusercontent.com/90389323/202335927-abe92f03-1f71-4f82-98e4-327ecfa59320.png)
+
