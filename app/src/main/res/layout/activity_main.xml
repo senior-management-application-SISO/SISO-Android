@@ -82,7 +82,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:fontFamily="@font/suitmedium"
-                        android:text="QR 코드 스캔"
+                        android:text="마을회관 출입"
                         android:textSize="18dp" />
                 </LinearLayout>
 
@@ -160,7 +160,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:fontFamily="@font/suitmedium"
-                        android:text="마을 회관 현황"
+                        android:text="마을회관 현황"
                         android:textSize="18dp" />
                 </LinearLayout>
             </LinearLayout>

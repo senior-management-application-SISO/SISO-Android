@@ -79,16 +79,34 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <EditText
-                    android:id="@+id/id"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:background="@drawable/round_shadow"
-                    android:fontFamily="@font/suitmedium"
-                    android:hint="아이디"
-                    android:paddingStart="30dp"
-                    android:paddingEnd="30dp"
-                    android:textSize="15dp" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/id"
+                        android:layout_width="250dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/round_shadow"
+                        android:fontFamily="@font/suitmedium"
+                        android:hint="아이디"
+                        android:paddingStart="30dp"
+                        android:paddingEnd="30dp"
+                        android:textSize="15dp" />
+
+                    <Button
+                        android:id="@+id/validIdButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/round"
+                        android:backgroundTint="#B3B3B3"
+                        android:fontFamily="@font/suitmedium"
+                        android:gravity="center"
+                        android:text="중복확인"
+                        android:textColor="@color/white" />
+                </LinearLayout>
 
                 <EditText
                     android:id="@+id/password"

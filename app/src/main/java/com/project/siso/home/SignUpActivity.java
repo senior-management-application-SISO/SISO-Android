@@ -17,11 +17,14 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.project.siso.MainActivity;
 import com.project.siso.databinding.ActivitySignUpBinding;
+import com.project.siso.domain.UserInfoState;
 import com.project.siso.domain.Users;
+import com.project.siso.httpserver.GetHttpClient;
 import com.project.siso.httpserver.PostHttpClient;
 
 import java.sql.Date;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
@@ -29,11 +32,15 @@ import okhttp3.RequestBody;
 public class SignUpActivity extends AppCompatActivity {
     private ActivitySignUpBinding binding;
 
+    private boolean validCheck;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        validCheck = false;
 
         setListeners();
     }
@@ -47,6 +54,8 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (binding.name.toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "이름을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                } else if (validCheck) {
+                    Toast.makeText(getApplicationContext(), "아이디 중복체크를 해주세요..", Toast.LENGTH_SHORT).show();
                 } else if (binding.id.toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show();
                 } else if (binding.id.toString().equals("")) {
@@ -64,6 +73,40 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
+
+        binding.validIdButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                validId();
+            }
+        });
+    }
+
+    public void validId() {
+        GetHttpClient httpclient = new GetHttpClient("restapi/signup/valid/" + binding.id.getText().toString());
+        Thread th = new Thread(httpclient);
+        th.start();
+        String result = null;
+
+        long start = System.currentTimeMillis();
+
+        while (result == null) {
+            result = httpclient.getResult();
+            long end = System.currentTimeMillis();
+            if (end - start > 3000) {
+                Toast.makeText(getApplicationContext(), "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                validCheck = false;
+                return;
+            }
+        }
+        Gson gson = new Gson();
+
+        Users user = gson.fromJson(result, Users.class);
+
+        if (user != null) {
+            Toast.makeText(getApplicationContext(), "이미 사용 중인 아이디입니다.", Toast.LENGTH_SHORT).show();
+            validCheck = true;
+        }
     }
 
     public void signUp() {
@@ -121,33 +164,33 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
 
-    public void saveUserLocation(String userId){
-            try {
-                RequestBody formBody = new FormBody.Builder()
-                        .add("lat", String.valueOf(1))
-                        .add("lon", String.valueOf(1)).build();
+    public void saveUserLocation(String userId) {
+        try {
+            RequestBody formBody = new FormBody.Builder()
+                    .add("lat", String.valueOf(1))
+                    .add("lon", String.valueOf(1)).build();
 
-                String request = "restapi/userslocation/save?userId=" + userId;
+            String request = "restapi/userslocation/save?userId=" + userId;
 
-                PostHttpClient postHttpClient = new PostHttpClient(request, formBody);
+            PostHttpClient postHttpClient = new PostHttpClient(request, formBody);
 
-                Thread th = new Thread(postHttpClient);
-                th.start();
-                String result = null;
+            Thread th = new Thread(postHttpClient);
+            th.start();
+            String result = null;
 
-                long start = System.currentTimeMillis();
+            long start = System.currentTimeMillis();
 
-                while (result == null) {
-                    result = postHttpClient.getResult();
-                    long end = System.currentTimeMillis();
-                    if (end - start > 3000) {
-                        Toast.makeText(getApplicationContext(), "서버 연결을 확인해주세요.", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
+            while (result == null) {
+                result = postHttpClient.getResult();
+                long end = System.currentTimeMillis();
+                if (end - start > 3000) {
+                    Toast.makeText(getApplicationContext(), "서버 연결을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                System.out.println("result = " + result);
-            } catch (Exception e) {
-                System.out.println(e);
             }
+            System.out.println("result = " + result);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }
